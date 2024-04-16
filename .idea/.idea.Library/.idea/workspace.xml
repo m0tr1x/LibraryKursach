@@ -9,14 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Migrations/20240416123500_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Migrations/20240416123500_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Migrations/20240416195224_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Migrations/20240416195224_Initial.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Models/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +106,7 @@
       <workItem from="1713270096181" duration="462000" />
       <workItem from="1713270580782" duration="21000" />
       <workItem from="1713270607417" duration="29000" />
-      <workItem from="1713270709178" duration="3242000" />
+      <workItem from="1713270709178" duration="3622000" />
     </task>
     <servers />
   </component>

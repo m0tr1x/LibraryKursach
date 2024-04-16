@@ -6,3 +6,4 @@ public enum Role
     Worker,
     Admin
 }
+
