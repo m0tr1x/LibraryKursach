@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace Library.Controllers;
 
-public class HomeController
+[ApiController]
+[Route("api/[controller]")]
+public class HomeController : ControllerBase
 {
     
 }

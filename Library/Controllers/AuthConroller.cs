@@ -13,15 +13,13 @@ using Microsoft.EntityFrameworkCore;
 namespace Library.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 public class AuthConroller : ControllerBase
 { 
-    public class AuthenticationController : ControllerBase
-    {
         private readonly IConfiguration _configuration; //Конфиг
         private readonly AppDbContext _context; //Контекст дб
 
-        public AuthenticationController(IConfiguration configuration, AppDbContext context)
+        public AuthConroller(IConfiguration configuration, AppDbContext context)
         {
             _configuration = configuration;
             _context = context;
@@ -52,5 +50,4 @@ public class AuthConroller : ControllerBase
 
             return Ok(new { Token = tokenString });
         }
-    }
 }
