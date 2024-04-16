@@ -34,20 +34,16 @@ public class AuthConroller : ControllerBase
                 return Unauthorized();
             }
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(AuthOptions.GetSymSecurityKey().ToString());
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, user.Id.ToString(), user.UserRole.ToString()),
-                }),
-                Expires = DateTime.UtcNow.AddHours(1), // Время жизни токена
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
+            var claims = new List<Claim> {
+                new Claim(ClaimTypes.Name, user.Email),
+                new Claim(ClaimTypes.Role, user.UserRole.ToString() )}; // Добавляем клеймы по роли и по емейлу
+            var jwt = new JwtSecurityToken( // Создаём токен
+                issuer: AuthOptions.ISSUER,
+                audience: AuthOptions.AUDIENCE,
+                claims: claims,
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(3)), // Задаем время действия
+                signingCredentials: new SigningCredentials(AuthOptions.GetSymSecurityKey(), SecurityAlgorithms.HmacSha256)); ;
+            return Ok(new JwtSecurityTokenHandler().WriteToken(jwt)); //Если с пользователем все ок вернули ему токен
 
-            return Ok(new { Token = tokenString });
         }
 }

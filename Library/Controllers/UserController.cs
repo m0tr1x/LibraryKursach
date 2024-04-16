@@ -31,10 +31,10 @@ public class UserController : ControllerBase
         }
 
         [HttpGet("available-books")]
-        public IActionResult GetAvailableBooks()
+        public async Task<IActionResult> GetAvailableBooks()
         {
             // Получить список доступных книг в библиотеке из сервиса книг
-            var availableBooks = _bookService.GetAvailableBooks();
+            var availableBooks = await _bookService.GetAvailableBooks();
             return Ok(availableBooks);
         }
 

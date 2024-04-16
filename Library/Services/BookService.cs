@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Library.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Services
@@ -19,11 +21,12 @@ namespace Library.Services
         {
             return await _context.Books.ToListAsync();
         }
-
+        
         public async Task<List<Book>> GetAvailableBooks()
         {
             return await _context.Books.Where(b => b.IsAvailable).ToListAsync();
         }
+
 
         public async Task<bool> TakeBook(int userId, int bookId)
         {
