@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Library.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/[controller]")]
 public class AuthConroller : ControllerBase
 { 
         private readonly IConfiguration _configuration; //Конфиг

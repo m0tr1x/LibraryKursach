@@ -15,7 +15,12 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddAuthorization();
+        builder.Services.AddAuthorization(options =>
+        {
+            options.AddPolicy("AdminOnly", policy => policy.RequireRole(Role.Admin.ToString()));
+            options.AddPolicy("WorkerOnly", policy => policy.RequireRole(Role.Worker.ToString()));
+            options.AddPolicy("UserOnly", policy => policy.RequireRole(Role.User.ToString()));
+        });
         // Условия для аутентификации
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
