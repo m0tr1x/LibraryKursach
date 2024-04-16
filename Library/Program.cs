@@ -14,6 +14,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddAuthorization();
+        // Условия для аутентификации
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {

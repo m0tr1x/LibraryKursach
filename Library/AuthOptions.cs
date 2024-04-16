@@ -3,6 +3,10 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Library;
 
+
+/// <summary>
+/// Тут аудитория, клиент, и генерация ключа
+/// </summary>
 public class AuthOptions
 {
     public const string ISSUER = "MyAuthServer"; 
