@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Library.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240416195724_Initial")]
+    [Migration("20240416210257_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -51,13 +51,11 @@ namespace Library.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("GenreId")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("boolean");
@@ -66,7 +64,16 @@ namespace Library.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("GenreId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Books", "Biblioteque");
                 });
@@ -113,7 +120,11 @@ namespace Library.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BookId");
+
                     b.HasIndex("RentalOperationId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("RentalOperations", "Biblioteque");
                 });
@@ -146,16 +157,62 @@ namespace Library.Migrations
                     b.ToTable("Users", "Biblioteque");
                 });
 
+            modelBuilder.Entity("Library.Models.Book", b =>
+                {
+                    b.HasOne("Library.Models.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.Models.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.Models.User", "User")
+                        .WithMany("Books")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Genre");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Library.Models.RentalOperation", b =>
                 {
+                    b.HasOne("Library.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Library.Models.RentalOperation", null)
                         .WithMany("RentalOperations")
                         .HasForeignKey("RentalOperationId");
+
+                    b.HasOne("Library.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Library.Models.RentalOperation", b =>
                 {
                     b.Navigation("RentalOperations");
+                });
+
+            modelBuilder.Entity("Library.Models.User", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

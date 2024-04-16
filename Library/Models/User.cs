@@ -7,4 +7,6 @@ public class User
     public string Password { get; set; }
     public string Email { get; set; }
     public Role UserRole { get; set; }
+    
+    public ICollection<Book> Books { get; set; }
 }

@@ -1,6 +1,7 @@
 
 using System.Text;
 using Library.Models;
+using Library.Services;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
@@ -37,6 +38,7 @@ public class Program
                 };
             });
         
+        builder.Services.AddScoped<UserService>();
         builder.Services.AddDbContext<AppDbContext>();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddControllers();

@@ -1,53 +1,35 @@
-using Library.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using Library.Services; // Добавьте этот using для доступа к сервису UserService
+using Library.Models; // Добавьте этот using для доступа к моделям
 
-namespace Library.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class HomeController : ControllerBase
+namespace Library.Controllers
 {
-    private readonly IConfiguration _configuration; //Конфиг
-    private readonly AppDbContext _context; //Контекст дб
-
-    public HomeController(IConfiguration configuration, AppDbContext context)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class HomeController : ControllerBase
     {
-        _configuration = configuration;
-        _context = context;
-    }
+        private readonly UserService _userService; // Используйте ваш сервис UserService вместо контекста и конфигурации
 
-
-    /// <summary>
-    /// Метод для регистрации нового пользователя
-    /// </summary>
-    /// <param name="registerModel"></param>
-    /// <returns></returns>
-    [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegisterModel registerModel)
-    {
-        
-        
-        // Проверка наличия пользователя с таким же email в базе данных
-        var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == registerModel.Email);
-        if (existingUser != null)
+        public HomeController(UserService userService) // Внедрите UserService в конструктор контроллера
         {
-            return BadRequest("Пользователь с таким email уже существует");
+            _userService = userService;
         }
 
-        // Создание нового пользователя
-        var newUser = new User
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterModel registerModel)
         {
-            Name = registerModel.Name,
-            Email = registerModel.Email,
-            Password = registerModel.Password,
-            UserRole = Role.User // Можно присвоить роль по умолчанию или оставить пустым, если роль необязательна
-        };
+            // Проверка наличия пользователя с таким же email в базе данных
+            var existingUser = await _userService.GetUserByEmail(registerModel.Email);
+            if (existingUser != null)
+            {
+                return BadRequest("Пользователь с таким email уже существует");
+            }
 
-        // Добавление пользователя в базу данных
-        _context.Users.Add(newUser);
-        await _context.SaveChangesAsync();
+            // Регистрация нового пользователя с использованием метода RegisterUser из UserService
+            var newUser = await _userService.RegisterUser(registerModel);
 
-        return Ok("Пользователь успешно зарегистрирован");
+            return Ok("Пользователь успешно зарегистрирован");
+        }
     }
 }
