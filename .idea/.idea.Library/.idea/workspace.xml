@@ -10,9 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Models/Book.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/Book.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/UserService.cs" afterDir="false" />
@@ -117,11 +118,23 @@
       <workItem from="1713270709178" duration="10814000" />
       <workItem from="1713381832170" duration="276000" />
       <workItem from="1713382151698" duration="4912000" />
+      <workItem from="1713387080940" duration="939000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

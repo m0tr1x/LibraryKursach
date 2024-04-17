@@ -1,3 +1,4 @@
+using Library.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,5 +13,6 @@ namespace Library.Controllers;
 [Authorize(Roles = "Worker")]
 public class WorkerController : ControllerBase
 {
-    
+    private readonly WorkerService _workerService;
+    private readonly BookService _bookService;
 }

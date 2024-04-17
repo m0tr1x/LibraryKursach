@@ -1,75 +1,89 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Library.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Services
+namespace Library.Services;
+
+/// <summary>
+/// Сервис для работы с книгами
+/// </summary>
+public class BookService
 {
-    public class BookService
+    private readonly AppDbContext _context;
+
+    public BookService(AppDbContext context)
     {
-        private readonly AppDbContext _context;
+        _context = context;
+    }
+    /// <summary>
+    /// Метод для получения всех книг
+    /// </summary>
+    /// <returns></returns>
+    public async Task<List<Book>> GetAllBooks()
+    {
+        return await _context.Books.ToListAsync();
+    }
 
-        public BookService(AppDbContext context)
-        {
-            _context = context;
-        }
-
-        public async Task<List<Book>> GetAllBooks()
-        {
-            return await _context.Books.ToListAsync();
-        }
-        
-        public async Task<List<Book>> GetAvailableBooks()
-        {
-            return await _context.Books.Where(b => b.IsAvailable).ToListAsync();
-        }
+    /// <summary>
+    /// Метод для получения всех доступных книг
+    /// </summary>
+    /// <returns></returns>
+    public async Task<List<Book>> GetAvailableBooks()
+    {
+        return await _context.Books.Where(b => b.IsAvailable).ToListAsync();
+    }
 
 
-        public async Task<bool> TakeBook(int userId, int bookId)
-        {
-            try
-            {
-                var book = await _context.Books.FindAsync(bookId);
-                
-                
-                if (book == null || !book.IsAvailable)
-                {
-                    return false; // Книга не найдена или недоступна
-                }
-
-                // Обновляем состояние книги
-                book.IsAvailable = false;
-                book.UserId = userId;
-                _context.Books.Update(book);
-                await _context.SaveChangesAsync();
-                return true; // Книга успешно взята пользователем
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return false; // Обработка ошибки
-            }
-
-        }
-
-        public async Task<bool> ReturnBook(int bookId, int userId)
+    /// <summary>
+    /// Метод для взятия книги
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <param name="bookId"></param>
+    /// <returns></returns>
+    public async Task<bool> TakeBook(int userId, int bookId)
+    {
+        try
         {
             var book = await _context.Books.FindAsync(bookId);
-            if (book == null || book.IsAvailable || book.UserId != userId)
+
+
+            if (book == null || !book.IsAvailable)
             {
-                return false; // Книга не найдена, уже доступна или не была взята этим пользователем
+                return false; // Книга не найдена или недоступна
             }
 
             // Обновляем состояние книги
-            book.IsAvailable = true;
-            book.UserId = null;
+            book.IsAvailable = false;
+            book.UserId = userId;
             _context.Books.Update(book);
             await _context.SaveChangesAsync();
-            return true; // Книга успешно возвращена в библиотеку
+            return true; // Книга успешно взята пользователем
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return false; // Обработка ошибки
+        }
+    }
+
+    /// <summary>
+    /// Метод для возврата книги
+    /// </summary>
+    /// <param name="bookId"></param>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    public async Task<bool> ReturnBook(int bookId, int userId)
+    {
+        var book = await _context.Books.FindAsync(bookId);
+        if (book == null || book.IsAvailable || book.UserId != userId)
+        {
+            return false; // Книга не найдена, уже доступна или не была взята этим пользователем
         }
 
+        // Обновляем состояние книги
+        book.IsAvailable = true;
+        book.UserId = null;
+        _context.Books.Update(book);
+        await _context.SaveChangesAsync();
+        return true; // Книга успешно возвращена в библиотеку
     }
 }

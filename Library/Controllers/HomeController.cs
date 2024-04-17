@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Library.Services; // Добавьте этот using для доступа к сервису UserService
 using Library.Models; // Добавьте этот using для доступа к моделям
 
