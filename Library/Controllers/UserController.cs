@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Library.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,11 +23,11 @@ public class UserController : ControllerBase
         }
 
         [HttpGet("my-books")]
-        public IActionResult GetMyBooks()
+        public async Task<IActionResult>  GetMyBooks()
         {
             // Получить список книг пользователя из сервиса пользователя
-            var userId = int.Parse(User.Identity.Name);
-            var userBooks = _userService.GetUserBooksAsync(userId);
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var userBooks = await _userService.GetUserBooksAsync(userId);
             return Ok(userBooks);
         }
 
@@ -41,10 +42,9 @@ public class UserController : ControllerBase
         [HttpPost("take-book/{bookId}")]
         public async Task<IActionResult> TakeBook(int bookId)
         {
-            var userId = int.Parse(User.Identity.Name);
-            var user = await _userService.GetUserById(userId);
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             // Попытаться взять книгу у сервиса книг
-            var success = await _bookService.TakeBook(bookId, userId);
+            var success = await _bookService.TakeBook(userId, bookId);
             if (success)
             {
                 return Ok("Книга успешно взята.");
@@ -58,7 +58,7 @@ public class UserController : ControllerBase
         [HttpPost("return-book/{bookId}")]
         public async Task<IActionResult> ReturnBook(int bookId)
         {
-            var userId = int.Parse(User.Identity.Name);
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             var success = await _bookService.ReturnBook(bookId, userId);
             if (success)
             {

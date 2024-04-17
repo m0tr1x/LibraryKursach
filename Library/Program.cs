@@ -40,7 +40,8 @@ public class Program
         
         builder.Services.AddScoped<UserService>();
         builder.Services.AddScoped<BookService>();
-        
+
+        builder.Services.AddLogging();
         
         builder.Services.AddDbContext<AppDbContext>();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

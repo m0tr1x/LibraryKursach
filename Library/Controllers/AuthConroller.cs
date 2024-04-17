@@ -35,7 +35,8 @@ public class AuthConroller : ControllerBase
             }
 
             var claims = new List<Claim> {
-                new Claim(ClaimTypes.Name, user.Email),
+                new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()), // Записали в клейм  айди 
                 new Claim(ClaimTypes.Role, user.UserRole.ToString() )}; // Добавляем клеймы по роли и по емейлу
             var jwt = new JwtSecurityToken( // Создаём токен
                 issuer: AuthOptions.ISSUER,

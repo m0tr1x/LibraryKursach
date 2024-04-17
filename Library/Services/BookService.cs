@@ -30,18 +30,29 @@ namespace Library.Services
 
         public async Task<bool> TakeBook(int userId, int bookId)
         {
-            var book = await _context.Books.FindAsync(bookId);
-            if (book == null || !book.IsAvailable)
+            try
             {
-                return false; // Книга не найдена или недоступна
+                var book = await _context.Books.FindAsync(bookId);
+                
+                
+                if (book == null || !book.IsAvailable)
+                {
+                    return false; // Книга не найдена или недоступна
+                }
+
+                // Обновляем состояние книги
+                book.IsAvailable = false;
+                book.UserId = userId;
+                _context.Books.Update(book);
+                await _context.SaveChangesAsync();
+                return true; // Книга успешно взята пользователем
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false; // Обработка ошибки
             }
 
-            // Обновляем состояние книги
-            book.IsAvailable = false;
-            book.UserId = userId;
-            _context.Books.Update(book);
-            await _context.SaveChangesAsync();
-            return true; // Книга успешно взята пользователем
         }
 
         public async Task<bool> ReturnBook(int bookId, int userId)
