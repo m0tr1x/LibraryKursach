@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Library.Models;
 using Library.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,13 @@ public class UserController : ControllerBase
 {
         private readonly UserService _userService;
         private readonly BookService _bookService;
+        private readonly RentalOperationService _rentalOperationService;
 
-        public UserController(UserService userService, BookService bookService)
+        public UserController(UserService userService, BookService bookService, RentalOperationService rentalOperationService)
         {
             _userService = userService;
             _bookService = bookService;
+            _rentalOperationService = rentalOperationService;
         }
 
         [HttpGet("my-books")]
@@ -47,6 +50,24 @@ public class UserController : ControllerBase
             var success = await _bookService.TakeBook(userId, bookId);
             if (success)
             {
+                var rentalOperation = new RentalOperation
+                {
+                    UserId = userId,
+                    BookId = bookId,
+                    StartDate = DateTime.UtcNow,
+                };
+
+                try
+                {
+                    await _rentalOperationService.AddRentalOperation(rentalOperation);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while adding a rental operation:");
+                    Console.WriteLine(ex.Message);
+                }
+
+
                 return Ok("Книга успешно взята.");
             }
             else
@@ -62,6 +83,18 @@ public class UserController : ControllerBase
             var success = await _bookService.ReturnBook(bookId, userId);
             if (success)
             {
+                try
+                {
+                    var rentalOperation = await _rentalOperationService.GetRentalOperationByBookAndUser(bookId, userId);
+                    // Установить время окончания аренды
+                    rentalOperation.EndDate = DateTime.UtcNow;
+                    await _rentalOperationService.UpdateRentalOperation(rentalOperation);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while updating a rental operation:");
+                    Console.WriteLine(ex.Message);
+                }
                 return Ok("Книга успешно возвращена.");
             }
             else

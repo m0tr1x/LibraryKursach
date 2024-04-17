@@ -50,6 +50,8 @@ public class BookService
             {
                 return false; // Книга не найдена или недоступна
             }
+            
+            
 
             // Обновляем состояние книги
             book.IsAvailable = false;
@@ -86,4 +88,32 @@ public class BookService
         await _context.SaveChangesAsync();
         return true; // Книга успешно возвращена в библиотеку
     }
+    
+    
+    /// <summary>
+    /// Метод для редактирования книги
+    /// </summary>
+    /// <param name="bookId"></param>
+    /// <param name="updatedBook"></param>
+    /// <returns></returns>
+    public async Task<bool> EditBookAsync(int bookId, BookModel updatedBook)
+    {
+        var existingBook = await _context.Books.FindAsync(bookId);
+        if (existingBook == null)
+        {
+            return false; // Книга не найдена
+        }
+
+        // Обновляем данные книги
+        existingBook.Title = updatedBook.Title;
+        existingBook.AuthorId = updatedBook.AuthorId;
+        existingBook.GenreId = updatedBook.GenreId;
+
+        // Сохраняем изменения в базе данных
+        _context.Books.Update(existingBook);
+        await _context.SaveChangesAsync();
+
+        return true; // Книга успешно обновлена
+    }
+
 }

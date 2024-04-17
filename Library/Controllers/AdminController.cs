@@ -16,12 +16,14 @@ public class AdminController : ControllerBase
     private readonly UserService _userService;
     private readonly BookService _bookService;
     private readonly AdminService _adminService;
+    private readonly RentalOperationService _rentalOperationService;
 
-    public AdminController(UserService userService, BookService bookService, AdminService adminService)
+    public AdminController(UserService userService, BookService bookService, AdminService adminService, RentalOperationService rentalOperationService)
     {
         _userService = userService;
         _bookService = bookService;
         _adminService = adminService;
+        _rentalOperationService = rentalOperationService;
     }
     
     [HttpPost("register-user")]
@@ -66,4 +68,13 @@ public class AdminController : ControllerBase
         var allBooks = await _bookService.GetAllBooks();
         return Ok(allBooks);
     }
+    
+    [HttpGet("all-rental-operations")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> GetAllRentalOperations()
+    {
+        var rentalOperations = await _rentalOperationService.GetAllRentalOperationsAsync();
+        return Ok(rentalOperations);
+    }
+
 }

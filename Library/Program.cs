@@ -42,6 +42,7 @@ public class Program
         builder.Services.AddScoped<BookService>();
         builder.Services.AddScoped<AdminService>();
         builder.Services.AddScoped<WorkerService>();
+        builder.Services.AddScoped<RentalOperationService>();
 
         builder.Services.AddLogging();
         
