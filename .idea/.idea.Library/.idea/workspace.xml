@@ -10,7 +10,12 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/main.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +120,9 @@
       <workItem from="1713270709178" duration="10814000" />
       <workItem from="1713381832170" duration="276000" />
       <workItem from="1713382151698" duration="4912000" />
-      <workItem from="1713387080940" duration="6601000" />
+      <workItem from="1713387080940" duration="8292000" />
+      <workItem from="1713440529109" duration="476000" />
+      <workItem from="1713442387899" duration="845000" />
     </task>
     <servers />
   </component>
@@ -142,27 +149,13 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
           <line>42</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="42" containingFunctionPresentation="Method 'TakeBook'">
-            <startOffsets>
-              <option value="1124" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1167" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="42" containingFunctionPresentation="Method 'TakeBook'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
           <line>50</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="50" containingFunctionPresentation="Method 'TakeBook'">
-            <startOffsets>
-              <option value="1292" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1330" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="50" containingFunctionPresentation="Method 'TakeBook'" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
