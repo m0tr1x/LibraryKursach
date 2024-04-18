@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Library.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240416210257_Initial")]
+    [Migration("20240418172541_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -109,9 +109,6 @@ namespace Library.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("RentalOperationId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -121,8 +118,6 @@ namespace Library.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BookId");
-
-                    b.HasIndex("RentalOperationId");
 
                     b.HasIndex("UserId");
 
@@ -190,12 +185,8 @@ namespace Library.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Library.Models.RentalOperation", null)
-                        .WithMany("RentalOperations")
-                        .HasForeignKey("RentalOperationId");
-
                     b.HasOne("Library.Models.User", "User")
-                        .WithMany()
+                        .WithMany("RentalOperations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -205,14 +196,11 @@ namespace Library.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Library.Models.RentalOperation", b =>
-                {
-                    b.Navigation("RentalOperations");
-                });
-
             modelBuilder.Entity("Library.Models.User", b =>
                 {
                     b.Navigation("Books");
+
+                    b.Navigation("RentalOperations");
                 });
 #pragma warning restore 612, 618
         }

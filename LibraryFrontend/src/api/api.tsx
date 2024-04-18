@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios, {get} from 'axios';
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -21,8 +22,80 @@ export const login = async (email: string, password: string) => {
 export const register = async (name: string, email: string, password: string) => {
     try {
         const response = await axios.post('http://localhost:5169/api/Home/register', { name, email, password });
-        return response.data;
+        return response;
     } catch (error) {
         throw new Error(error.response.data.message);
     }
 };
+export const getAvailableBooks = async () =>{
+    try{
+        const responce = await axios.get('http://localhost:5169/api/User/available-books',{
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return responce.data;
+
+    }catch (error)
+    {
+        throw new Error(error.response.data.message())
+    }
+};
+
+export const getMyBooks = async () =>{
+    try{
+        const responce = await axios.get('http://localhost:5169/api/User/my-books',{
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return responce.data;
+
+    }catch (error)
+    {
+        throw new Error(error.response.data.message())
+    }
+};
+
+export const getBook = async (bookId: number) =>{
+    try{
+        const responce = await axios.post(`http://localhost:5169/api/User/take-book/bookId=${bookId}`, null,{
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return responce.data;
+
+    }catch (error)
+    {
+        throw new Error(error.response.data.message())
+    }
+};
+export const returnBook = async (bookId: number) =>{
+    try{
+        const responce = await axios.post(`http://localhost:5169/api/User/return-book/bookId=${bookId}`, null,{
+            headers:{
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return responce.data;
+
+    }catch (error)
+    {
+        throw new Error(error.response.data.message())
+    }
+};
+
+export const logOut = async() =>{
+    try{
+        localStorage.removeItem('token');
+    }
+    catch(error)
+    {
+        throw new Error(error.message)
+    }
+}

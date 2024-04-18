@@ -108,8 +108,7 @@ namespace Library.Migrations
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     BookId = table.Column<int>(type: "integer", nullable: false),
                     StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    RentalOperationId = table.Column<int>(type: "integer", nullable: true)
+                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -121,12 +120,6 @@ namespace Library.Migrations
                         principalTable: "Books",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RentalOperations_RentalOperations_RentalOperationId",
-                        column: x => x.RentalOperationId,
-                        principalSchema: "Biblioteque",
-                        principalTable: "RentalOperations",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_RentalOperations_Users_UserId",
                         column: x => x.UserId,
@@ -159,12 +152,6 @@ namespace Library.Migrations
                 schema: "Biblioteque",
                 table: "RentalOperations",
                 column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RentalOperations_RentalOperationId",
-                schema: "Biblioteque",
-                table: "RentalOperations",
-                column: "RentalOperationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RentalOperations_UserId",

@@ -42,7 +42,7 @@ public class UserController : ControllerBase
             return Ok(availableBooks);
         }
 
-        [HttpPost("take-book/{bookId}")]
+        [HttpPost("take-book/bookId={bookId}")]
         public async Task<IActionResult> TakeBook(int bookId)
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
@@ -76,7 +76,7 @@ public class UserController : ControllerBase
             }
         }
 
-        [HttpPost("return-book/{bookId}")]
+        [HttpPost("return-book/bookId={bookId}")]
         public async Task<IActionResult> ReturnBook(int bookId)
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));

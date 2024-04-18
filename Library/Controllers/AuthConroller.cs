@@ -35,6 +35,7 @@ public class AuthConroller : ControllerBase
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name, user.Name),
+            new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()), // Записали в клейм  айди 
             new Claim(ClaimTypes.Role, user.UserRole.ToString())
         }; // Добавляем клеймы по роли и по емейлу

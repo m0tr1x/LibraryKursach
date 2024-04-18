@@ -4,6 +4,7 @@ import {useState} from "react";
 import {Form} from "react-bootstrap";
 import {login, register} from "../../api/api.tsx";
 import {Message} from "./PopUpMessageSuccess.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 export function HomePage() {
@@ -13,11 +14,13 @@ export function HomePage() {
     const [name, setName] = useState('');
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
             const response = await login(email, password); // Вызываем метод login из API
-           localStorage.setItem('token', response.message)
+           localStorage.setItem('token', response)
+            navigate("/user")
         } catch (error) {
             console.error('Login error:', error.message);
             // Обработка ошибки входа
@@ -28,7 +31,7 @@ export function HomePage() {
         try {
             const response = await register(name, email, password); // Вызываем метод register из API
             setShowSuccessMessage(true); // Показываем попап сообщения об успешной регистрации
-            setSuccessMessage(response); // Устанавливаем сообщение для компонента Message
+            setSuccessMessage(response.data); // Устанавливаем сообщение для компонента Message
         } catch (error) {
             console.error('Register error:', error.message);
             // Обработка ошибки регистрации
@@ -54,7 +57,7 @@ export function HomePage() {
                             </Form.Group>
 
                             <Button variant="primary" type="button" onClick={handleLogin}>
-                                Вход
+                                Войти
                             </Button>
                         </Form>
                     ) : (
@@ -75,7 +78,7 @@ export function HomePage() {
                             </Form.Group>
 
                             <Button variant="primary" type="button" onClick={handleRegister}>
-                                Регистрация
+                                Зарегистрироваться
                             </Button>
                         </Form>
                     )}

@@ -29,7 +29,10 @@ public class BookService
     /// <returns></returns>
     public async Task<List<Book>> GetAvailableBooks()
     {
-        return await _context.Books.Where(b => b.IsAvailable).ToListAsync();
+        return await _context.Books.Where(b => b.IsAvailable)
+            .Include(b => b.Author) // Включаем данные об авторе книги
+            .Include(b => b.Genre) // Включаем данные о жанре книги
+            .ToListAsync();
     }
 
 

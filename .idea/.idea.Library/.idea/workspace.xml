@@ -11,9 +11,23 @@
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Migrations/20240416210257_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Migrations/20240416210257_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/Book.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/Book.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/RentalOperation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/RentalOperation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Admin.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/PopUpMessageSuccess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/PopUpMessageSuccess.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +138,7 @@
       <workItem from="1713442387899" duration="845000" />
       <workItem from="1713448730546" duration="380000" />
       <workItem from="1713449118257" duration="4776000" />
-      <workItem from="1713454795862" duration="659000" />
+      <workItem from="1713454795862" duration="13080000" />
     </task>
     <servers />
   </component>

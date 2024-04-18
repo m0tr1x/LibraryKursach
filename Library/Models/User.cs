@@ -9,4 +9,5 @@ public class User
     public Role UserRole { get; set; }
     
     public ICollection<Book> Books { get; set; }
+    public  ICollection<RentalOperation> RentalOperations { get; set; }
 }

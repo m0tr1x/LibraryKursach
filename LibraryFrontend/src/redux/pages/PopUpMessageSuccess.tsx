@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-export function Message({ message }) {
+export function Message({ message  }) {
     const [show, setShow] = useState(true);
 
     const handleClose = () => setShow(false);
