@@ -10,12 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/assets/react.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Downloads/HomeController.cs из backend 13laba.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9f57cbe23d44a65a6f883892f576daf219600/79/5e679b9a/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
@@ -42,30 +41,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Library: http.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.Library: https.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.072186835&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Library: http.executor": "Run",
+    ".NET Launch Settings Profile.Library: https.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.072186835",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
-      &quot;/Users/mtrx/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/mtrx/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Library: http">
     <configuration name="Library: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Library/Library.csproj" />
@@ -123,6 +122,9 @@
       <workItem from="1713387080940" duration="8292000" />
       <workItem from="1713440529109" duration="476000" />
       <workItem from="1713442387899" duration="845000" />
+      <workItem from="1713448730546" duration="380000" />
+      <workItem from="1713449118257" duration="4776000" />
+      <workItem from="1713454795862" duration="659000" />
     </task>
     <servers />
   </component>
@@ -157,6 +159,19 @@
           <line>50</line>
           <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="50" containingFunctionPresentation="Method 'TakeBook'" />
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Controllers/AuthConroller.cs</url>
+          <line>27</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" initialLine="27" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="758" />
+            </startOffsets>
+            <endOffsets>
+              <option value="894" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

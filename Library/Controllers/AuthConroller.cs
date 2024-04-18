@@ -23,7 +23,7 @@ public class AuthConroller : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
+    public async Task<IActionResult> Login([FromBody]LoginModel loginModel)
     {
         var user = await _context.Users.SingleOrDefaultAsync(u =>
             u.Email == loginModel.Email && u.Password == loginModel.Password);

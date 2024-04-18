@@ -16,7 +16,7 @@ namespace Library.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterModel registerModel)
+        public async Task<IActionResult> Register(RegisterModel registerModel)
         {
             // Проверка наличия пользователя с таким же email в базе данных
             var existingUser = await _userService.GetUserByEmail(registerModel.Email);

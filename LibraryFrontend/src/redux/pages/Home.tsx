@@ -1,24 +1,40 @@
-
 import Card from "react-bootstrap/Card";
 import Button from 'react-bootstrap/Button';
 import {useState} from "react";
 import {Form} from "react-bootstrap";
+import {login, register} from "../../api/api.tsx";
+import {Message} from "./PopUpMessageSuccess.tsx";
 
 
-export function HomePage()
-{
+export function HomePage() {
     const [activeTab, setActiveTab] = useState('login');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
 
-    const handleLogin = () => {
-        // Обработка входа
+    const handleLogin = async () => {
+        try {
+            const response = await login(email, password); // Вызываем метод login из API
+           localStorage.setItem('token', response.message)
+        } catch (error) {
+            console.error('Login error:', error.message);
+            // Обработка ошибки входа
+        }
     };
 
-    const handleRegister = () => {
-        // Обработка регистрации
+    const handleRegister = async () => {
+        try {
+            const response = await register(name, email, password); // Вызываем метод register из API
+            setShowSuccessMessage(true); // Показываем попап сообщения об успешной регистрации
+            setSuccessMessage(response); // Устанавливаем сообщение для компонента Message
+        } catch (error) {
+            console.error('Register error:', error.message);
+            // Обработка ошибки регистрации
+        }
     };
+
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
@@ -37,7 +53,7 @@ export function HomePage()
                                 <Form.Control type="password" placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" onClick={handleLogin}>
+                            <Button variant="primary" type="button" onClick={handleLogin}>
                                 Вход
                             </Button>
                         </Form>
@@ -58,7 +74,7 @@ export function HomePage()
                                 <Form.Control type="password" placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit" onClick={handleRegister}>
+                            <Button variant="primary" type="button" onClick={handleRegister}>
                                 Регистрация
                             </Button>
                         </Form>
@@ -73,6 +89,7 @@ export function HomePage()
                     </Button>
                 </Card.Footer>
             </Card>
+            {showSuccessMessage && <Message message={successMessage} />}
         </div>
     );
 }
