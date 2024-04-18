@@ -10,12 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Services/WorkerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/WorkerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +115,7 @@
       <workItem from="1713270709178" duration="10814000" />
       <workItem from="1713381832170" duration="276000" />
       <workItem from="1713382151698" duration="4912000" />
-      <workItem from="1713387080940" duration="4611000" />
+      <workItem from="1713387080940" duration="6601000" />
     </task>
     <servers />
   </component>
