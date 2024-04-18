@@ -5,6 +5,8 @@ import {Form} from "react-bootstrap";
 import {login, register} from "../../api/api.tsx";
 import {Message} from "./PopUpMessageSuccess.tsx";
 import {useNavigate} from "react-router-dom";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 
 export function HomePage() {
@@ -22,6 +24,11 @@ export function HomePage() {
            localStorage.setItem('token', response)
             navigate("/user")
         } catch (error) {
+            if(error.status === undefined)
+            {
+                setShowSuccessMessage(true); // Показываем попап сообщения об успешной регистрации
+                setSuccessMessage('Неверная почта или пароль');
+            }
             console.error('Login error:', error.message);
             // Обработка ошибки входа
         }

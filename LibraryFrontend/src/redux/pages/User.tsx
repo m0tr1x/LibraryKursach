@@ -28,6 +28,9 @@ export function UserPage() {
                         <Nav variant="tabs" defaultActiveKey="/home">
                             {role === 'Admin' && (
                                 <Nav.Item>
+                                    <Nav.Link as={Link} to="/admin/createworker">Добавить работника</Nav.Link>
+                                    <Nav.Link as={Link} to="/admin/deleteuser">Удалить пользователя</Nav.Link>
+                                    <Nav.Link as={Link} to="/admin/allusers">Все пользователи в библиотеке</Nav.Link>
                                     <Nav.Link as={Link} to="/" onClick={() => logOut()}>Выйти из аккаунта</Nav.Link>
                                 </Nav.Item>
                             )}

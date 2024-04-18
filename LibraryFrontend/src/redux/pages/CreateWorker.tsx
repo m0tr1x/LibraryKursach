@@ -1,4 +1,4 @@
-export function CreateWorker()
+export function CreateWorkerPage()
 {
     return(
     <>

@@ -10,11 +10,11 @@ export const login = async (email: string, password: string) => {
             {headers: {
                 'Content-type' : 'application/json'
             }});
-
         const token = response.data; // Предполагается, что токен возвращается в свойстве token
         return token;
     } catch (error) {
-        throw new Error(error.response.data.message);
+
+        throw new Error('Unauthorized');
     }
 };
 
