@@ -1,8 +1,8 @@
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useState} from "react";
-import {createWorker, register} from "../../api/api.tsx";
 import {Message} from "./PopUpMessageSuccess.tsx";
+import {register} from "../../api/api.tsx";
 
 export function CreateWorkerPage()
 {

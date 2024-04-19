@@ -25,7 +25,7 @@ public class UserService
     {
         return await _context.Users.ToListAsync();
     }
-    
+
     /// <summary>
     /// Метод для получения пользователя по его емейлу
     /// </summary>
@@ -34,6 +34,17 @@ public class UserService
     public async Task<User> GetUserByEmail(string email)
     {
         return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+    }
+    
+    
+    /// <summary>
+    /// Метод для поиска юзера по его id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public async Task<User> GetUserById(int id)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
     }
     
     /// <summary>
@@ -93,4 +104,36 @@ public class UserService
         await _context.SaveChangesAsync();
         return true; // Пользователь успешно удален
     }
+
+    
+    /// <summary>
+    /// Метод для изменения данных пользователя
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <param name="user"></param>
+    /// <returns></returns>
+    public async Task<bool> UpdateUser(int userId, User user)
+    {
+        // Получаем пользователя из базы данных по его идентификатору
+        var existingUser = await _context.Users.FindAsync(userId);
+    
+        // Проверяем, существует ли пользователь с указанным идентификатором
+        if (existingUser == null)
+        {
+            return false; // Если пользователь не найден, возвращаем false
+        }
+    
+        // Обновляем данные пользователя на основе предоставленного объекта user
+        existingUser.Name = user.Name;
+        existingUser.Email = user.Email;
+        existingUser.UserRole = user.UserRole;
+        // Обновляем другие поля по мере необходимости
+
+        // Сохраняем обновленного пользователя в базе данных
+        _context.Users.Update(existingUser);
+        await _context.SaveChangesAsync();
+    
+        return true; // Возвращаем true, чтобы показать успешное обновление
+    }
+
 }

@@ -1,21 +1,16 @@
 import {Button, Col, Row} from "react-bootstrap";
 import {useEffect, useState} from "react";
-import {Book} from "../Book.tsx";
 import {getAvailableBooks, getBook} from "../../api/api.tsx";
 import Card from "react-bootstrap/Card";
-import {useNavigate} from "react-router-dom";
+import {IBook} from "../Interfaces/IBook.tsx";
+
 
 
 export function AllBooksPage()
 {
-    const navigate = useNavigate();
-    const [availableBooks, setAvailableBooks] = useState<Book[]>([]);
+    const [availableBooks, setAvailableBooks] = useState<IBook[]>([]);
 
-    const handleLogout = () => {
-        // Реализуйте код для выхода из аккаунта, например, удаление токена из локального хранилища
-        localStorage.removeItem('token');
-        navigate("/")
-    }
+
 
     const handleTakeBook = async (bookId:number) => {
         try {

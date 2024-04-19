@@ -11,16 +11,15 @@
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Models/RegisterModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/RegisterModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Services/AdminService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/Book.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/Interfaces/IBook.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllUsers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllUsers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/CreateWorker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/CreateWorker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/DeleteUser.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/MyBooksPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/MyBooksPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,30 +48,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Library: http.executor": "Run",
-    ".NET Launch Settings Profile.Library: https.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.072186835",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Library: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Library: https.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.072186835&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
-      "/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
-      "/Users/mtrx/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/mtrx/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Library: http">
     <configuration name="Library: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Library/Library.csproj" />
@@ -133,6 +132,8 @@
       <workItem from="1713448730546" duration="380000" />
       <workItem from="1713449118257" duration="4776000" />
       <workItem from="1713454795862" duration="18172000" />
+      <workItem from="1713512194718" duration="197000" />
+      <workItem from="1713515968045" duration="3055000" />
     </task>
     <servers />
   </component>

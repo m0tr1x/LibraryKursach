@@ -1,13 +1,13 @@
 import {Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import {useEffect, useState} from "react";
-import {Book} from "../Book.tsx";
+import {IBook} from "../Interfaces/IBook.tsx";
 import { Button } from 'react-bootstrap';
 import { getMyBooks, returnBook} from "../../api/api.tsx";
 
 export function MyBooksPage()
 {
-    const [myBooks, setMyBooks] = useState<Book[]>([]);
+    const [myBooks, setMyBooks] = useState<IBook[]>([]);
 
 
     const handleReturnBook = async (bookId:number) => {

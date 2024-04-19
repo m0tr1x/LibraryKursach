@@ -68,5 +68,13 @@ public class AdminController : ControllerBase
         var rentalOperations = await _rentalOperationService.GetAllRentalOperationsAsync();
         return Ok(rentalOperations);
     }
+    [HttpGet("edit-user/userId={userId}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> EditUser(int userId)
+    {
+        var user = await _userService.GetUserById(userId);
+        return Ok(user);
+    }
+    
 
 }
