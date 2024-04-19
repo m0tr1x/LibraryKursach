@@ -112,7 +112,7 @@ public class UserService
     /// <param name="userId"></param>
     /// <param name="user"></param>
     /// <returns></returns>
-    public async Task<bool> UpdateUser(int userId, User user)
+    public async Task<bool> UpdateUser(int userId, string email, string name, Role role)
     {
         // Получаем пользователя из базы данных по его идентификатору
         var existingUser = await _context.Users.FindAsync(userId);
@@ -124,10 +124,12 @@ public class UserService
         }
     
         // Обновляем данные пользователя на основе предоставленного объекта user
-        existingUser.Name = user.Name;
-        existingUser.Email = user.Email;
-        existingUser.UserRole = user.UserRole;
-        // Обновляем другие поля по мере необходимости
+        existingUser.Name = name;
+        existingUser.Email = email;
+        existingUser.UserRole = role;
+         
+
+
 
         // Сохраняем обновленного пользователя в базе данных
         _context.Users.Update(existingUser);

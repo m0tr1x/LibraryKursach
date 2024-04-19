@@ -110,9 +110,9 @@ export const getAllUsers = async () => {
     }
 }
 
-export const changeUserData = async (userId: number, userData: IUser) => {
+export const changeUserData = async (userId:number, email: string, name:string, role:Role) => {
     try {
-        const response = await axios.put(`http://localhost:5169/api/Admin/edit-user/userId=${userId}`, {userId,userData}, {
+        const response = await axios.put(`http://localhost:5169/api/Admin/edit-user/userId=${userId}`, {email,name,role}, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
@@ -123,6 +123,22 @@ export const changeUserData = async (userId: number, userData: IUser) => {
         throw new Error(error.response.data.message());
     }
 };
+
+export const deleteUser= async (userId: number) =>{
+    try{
+        const response = await axios.delete(`http://localhost:5169/api/Admin/delete-user/userId=${userId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    }
+    catch (error)
+    {
+        throw new Error(error.response.data.message())
+    }
+}
 
 
 

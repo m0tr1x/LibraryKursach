@@ -34,6 +34,18 @@ public class BookService
             .Include(b => b.Genre) // Включаем данные о жанре книги
             .ToListAsync();
     }
+    
+    /// <summary>
+    /// Метод для получения всех  книг пользователя
+    /// </summary>
+    /// <returns></returns>
+    public async Task<List<Book>> GetUserBooks(int Id)
+    {
+        return await _context.Books.Where(b => b.Id == Id)
+            .Include(b => b.Author) // Включаем данные об авторе книги
+            .Include(b => b.Genre) // Включаем данные о жанре книги
+            .ToListAsync();
+    }
 
 
     /// <summary>
@@ -54,8 +66,6 @@ public class BookService
                 return false; // Книга не найдена или недоступна
             }
             
-            
-
             // Обновляем состояние книги
             book.IsAvailable = false;
             book.UserId = userId;

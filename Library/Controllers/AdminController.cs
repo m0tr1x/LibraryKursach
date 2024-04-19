@@ -30,20 +30,36 @@ public class AdminController : ControllerBase
     /// </summary>
     /// <param name="userId"></param>
     /// <returns></returns>
-    [HttpDelete("delete-user/{userId}")]
+    [HttpDelete("delete-user/userId={userId}")]
     public async Task<IActionResult> DeleteUser(int userId)
     {
-        // Удаление пользователя по его идентификатору с помощью сервиса пользователей
-        var success = await _userService.DeleteUser(userId);
-        if (success)
+        try
         {
-            return Ok("Пользователь успешно удален.");
+            // Получаем список всех книг пользователя
+            var userBooks = await _bookService.GetUserBooks(userId);
+            foreach (var book in userBooks)
+            {
+                _bookService.DeleteBook(book.Id);
+            }
+            // Удаляем пользователя
+            var success = await _userService.DeleteUser(userId);
+
+            if (success)
+            {
+                return Ok("Пользователь успешно удален.");
+            }
+            else
+            {
+                return BadRequest("Ошибка при удалении пользователя.");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            return BadRequest("Ошибка при удалении пользователя.");
+            // Обработка исключения при возникновении ошибки
+            return StatusCode(500, $"Внутренняя ошибка сервера: {ex.Message}");
         }
     }
+
 
     [HttpGet("all-users")]
     public async Task<IActionResult> GetAllUsers()
@@ -68,11 +84,13 @@ public class AdminController : ControllerBase
         var rentalOperations = await _rentalOperationService.GetAllRentalOperationsAsync();
         return Ok(rentalOperations);
     }
-    [HttpGet("edit-user/userId={userId}")]
+
+    [HttpPut("edit-user/userId={userId}")]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> EditUser(int userId, [FromBody] User user)
+    public async Task<IActionResult> EditUser(int userId, string email, string name, Role role)
     {
-        var success = await _userService.UpdateUser(userId, user);
+        Console.WriteLine($"{userId} {email} {name} {role}");
+        var success = await _userService.UpdateUser(userId, email, name, role);
         if (success)
         {
             return Ok("Пользователь успешно отредактирован.");
@@ -80,8 +98,8 @@ public class AdminController : ControllerBase
         else
         {
             return BadRequest("Ошибка при редактировании пользователя.");
-        
+
+        }
     }
-    
 
 }
