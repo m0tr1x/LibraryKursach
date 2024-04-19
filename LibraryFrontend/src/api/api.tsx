@@ -1,4 +1,6 @@
 import axios from 'axios';
+import {Role} from "../redux/Interfaces/Role.tsx";
+import {IUser} from "../redux/Interfaces/IUser.tsx";
 
 
 export const login = async (email: string, password: string) => {
@@ -107,4 +109,20 @@ export const getAllUsers = async () => {
         throw new Error(error.response.data.message())
     }
 }
+
+export const changeUserData = async (userId: number, userData: IUser) => {
+    try {
+        const response = await axios.put(`http://localhost:5169/api/Admin/edit-user/userId=${userId}`, {userId,userData}, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error(error.response.data.message());
+    }
+};
+
+
 

@@ -70,10 +70,17 @@ public class AdminController : ControllerBase
     }
     [HttpGet("edit-user/userId={userId}")]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> EditUser(int userId)
+    public async Task<IActionResult> EditUser(int userId, [FromBody] User user)
     {
-        var user = await _userService.GetUserById(userId);
-        return Ok(user);
+        var success = await _userService.UpdateUser(userId, user);
+        if (success)
+        {
+            return Ok("Пользователь успешно отредактирован.");
+        }
+        else
+        {
+            return BadRequest("Ошибка при редактировании пользователя.");
+        
     }
     
 
