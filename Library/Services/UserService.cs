@@ -1,4 +1,5 @@
 using Library.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Services;
@@ -54,25 +55,23 @@ public class UserService
 
 
     /// <summary>
-    /// Метод для регистрации пользователя
+    /// Метод для регистрации 
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
 
-    public async Task<User> RegisterUser(RegisterModel model)
+    public async Task<bool> Register([FromBody]RegisterModel model)
     {
         var newUser = new User
         {
             Name = model.Name,
             Email = model.Email,
             Password = model.Password,
-            UserRole = Role.User
+            UserRole = model.Role
         };
-
         _context.Users.Add(newUser);
-        await _context.SaveChangesAsync();
-            
-        return newUser;
+        await _context.SaveChangesAsync(); // Сохранение данных в базу данных
+        return true;
     }
     
     /// <summary>

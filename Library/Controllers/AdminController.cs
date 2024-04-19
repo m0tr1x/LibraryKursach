@@ -15,24 +15,16 @@ public class AdminController : ControllerBase
 {
     private readonly UserService _userService;
     private readonly BookService _bookService;
-    private readonly AdminService _adminService;
     private readonly RentalOperationService _rentalOperationService;
 
-    public AdminController(UserService userService, BookService bookService, AdminService adminService, RentalOperationService rentalOperationService)
+    public AdminController(UserService userService, BookService bookService,RentalOperationService rentalOperationService)
     {
         _userService = userService;
         _bookService = bookService;
-        _adminService = adminService;
         _rentalOperationService = rentalOperationService;
     }
     
-    [HttpPost("register-user")]
-    public async Task<IActionResult> RegisterWorker([FromBody] RegisterModel model)
-    {
-        // Регистрация нового пользователя с помощью сервиса пользователей
-        var newWorker = await _adminService.RegisterEmployee(model);
-        return Ok(newWorker);
-    }
+    
     /// <summary>
     /// Метод для удаления пользователя по айди
     /// </summary>

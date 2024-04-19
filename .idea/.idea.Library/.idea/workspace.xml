@@ -9,8 +9,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/RegisterModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/RegisterModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Services/AdminService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/CreateWorker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/CreateWorker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +62,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.general",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -122,7 +132,7 @@
       <workItem from="1713442387899" duration="845000" />
       <workItem from="1713448730546" duration="380000" />
       <workItem from="1713449118257" duration="4776000" />
-      <workItem from="1713454795862" duration="13531000" />
+      <workItem from="1713454795862" duration="18172000" />
     </task>
     <servers />
   </component>

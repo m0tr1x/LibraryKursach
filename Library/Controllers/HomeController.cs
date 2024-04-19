@@ -26,7 +26,7 @@ namespace Library.Controllers
             }
 
             // Регистрация нового пользователя с использованием метода RegisterUser из UserService
-            var newUser = await _userService.RegisterUser(registerModel);
+            var newUser = await _userService.Register(registerModel);
 
             return Ok("Пользователь успешно зарегистрирован");
         }

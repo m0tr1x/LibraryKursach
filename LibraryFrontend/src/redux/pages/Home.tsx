@@ -36,7 +36,7 @@ export function HomePage() {
 
     const handleRegister = async () => {
         try {
-            const response = await register(name, email, password); // Вызываем метод register из API
+            const response = await register(name, email, password, 0); // Вызываем метод register из API
             setShowSuccessMessage(true); // Показываем попап сообщения об успешной регистрации
             setSuccessMessage(response.data); // Устанавливаем сообщение для компонента Message
         } catch (error) {

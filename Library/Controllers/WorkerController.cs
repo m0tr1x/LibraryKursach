@@ -37,7 +37,7 @@ public class WorkerController : ControllerBase
         }
     }
 
-    [HttpPut("edit-book/{bookId}")]
+    [HttpPut("edit-book/bookId={bookId}")]
     public async Task<IActionResult> EditBook(int bookId, [FromBody] BookModel model)
     {
         try
@@ -50,6 +50,21 @@ public class WorkerController : ControllerBase
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
     }
+    
+    [HttpPut("delete-book/bookId={bookId}")]
+    public async Task<IActionResult> DeleteBook(int bookId)
+    {
+        try
+        {
+            var editedBook = await _bookService.DeleteBook(bookId);
+            return Ok(editedBook);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
+    }
+
     
     [HttpPost("add-genre")]
     public async Task<IActionResult> AddGenre(string genreName)

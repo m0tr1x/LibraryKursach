@@ -51,7 +51,6 @@ public class Program
         //Добавили сервисы
         builder.Services.AddScoped<UserService>();
         builder.Services.AddScoped<BookService>();
-        builder.Services.AddScoped<AdminService>();
         builder.Services.AddScoped<WorkerService>();
         builder.Services.AddScoped<RentalOperationService>();
 

@@ -119,4 +119,18 @@ public class BookService
         return true; // Книга успешно обновлена
     }
 
+    /// <summary>
+    /// Метод для удаления книги
+    /// </summary>
+    /// <param name="bookId"></param>
+    /// <returns></returns>
+    public async Task<bool> DeleteBook(int bookId)
+    {
+        var book = await _context.Books.FindAsync(bookId);
+        if (book == null) throw new ArgumentException("Книга не найдена");
+        _context.Books.Remove(book);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
 }

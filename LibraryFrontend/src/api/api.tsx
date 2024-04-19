@@ -1,11 +1,12 @@
 import axios, {get} from 'axios';
 import {useNavigate} from "react-router-dom";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 
 
 export const login = async (email: string, password: string) => {
     try {
-
         const response = await axios.post('http://localhost:5169/api/AuthConroller/login', {email, password},
             {headers: {
                 'Content-type' : 'application/json'
@@ -19,9 +20,9 @@ export const login = async (email: string, password: string) => {
 };
 
 
-export const register = async (name: string, email: string, password: string) => {
+export const register = async (name: string, email: string, password: string, role: number) => {
     try {
-        const response = await axios.post('http://localhost:5169/api/Home/register', { name, email, password });
+        const response = await axios.post('http://localhost:5169/api/Home/register', { name, email, password, role });
         return response;
     } catch (error) {
         throw new Error(error.response.data.message);
@@ -99,3 +100,4 @@ export const logOut = async() =>{
         throw new Error(error.message)
     }
 }
+
