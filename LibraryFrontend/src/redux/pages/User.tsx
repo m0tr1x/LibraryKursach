@@ -13,6 +13,7 @@ export function UserPage() {
 
 
     // Получаем необходимые поля из декодированного токена
+    const id = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/id'];
     const role  = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
     const email = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
     const name = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
@@ -30,7 +31,6 @@ export function UserPage() {
                             {role === 'Admin' && (
                                 <Nav.Item>
                                     <Nav.Link as={Link} to="/admin/createworker">Добавить работника</Nav.Link>
-                                    <Nav.Link as={Link} to="/admin/deleteuser">Удалить пользователя</Nav.Link>
                                     <Nav.Link as={Link} to="/admin/allusers">Все пользователи в библиотеке</Nav.Link>
                                     <Nav.Link as={Link} to="/" onClick={() => logOut()}>Выйти из аккаунта</Nav.Link>
                                 </Nav.Item>
@@ -44,6 +44,7 @@ export function UserPage() {
                             )}
                             {role === 'Worker' && (
                                 <>
+                                    <Nav.Link as={Link} to="/worker/orders">Выдача заказов</Nav.Link>
                                     <Nav.Link as={Link} to="/" onClick={() => logOut()}>Выйти из аккаунта</Nav.Link>
                                 </>
                             )}

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Library.Models;
 
 public class User
@@ -8,6 +10,8 @@ public class User
     public string Email { get; set; }
     public Role UserRole { get; set; }
     
+    [JsonIgnore]
     public ICollection<Book> Books { get; set; }
+    [JsonIgnore]
     public  ICollection<RentalOperation> RentalOperations { get; set; }
 }

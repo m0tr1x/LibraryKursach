@@ -5,8 +5,7 @@ import {Form} from "react-bootstrap";
 import {login, register} from "../../api/api.tsx";
 import {Message} from "./PopUpMessageSuccess.tsx";
 import {useNavigate} from "react-router-dom";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+
 
 
 export function HomePage() {

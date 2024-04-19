@@ -58,9 +58,9 @@ export const getMyBooks = async () => {
     }
 };
 
-export const getBook = async (bookId: number) => {
+export const purchaseBook = async (bookId: number, userId: number) => {
     try {
-        const responce = await axios.post(`http://localhost:5169/api/User/take-book/bookId=${bookId}`, null, {
+        const responce = await axios.post(`http://localhost:5169/api/User/purshace-book/bookId=${bookId}`, {bookId,userId}, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
@@ -133,6 +133,40 @@ export const deleteUser= async (userId: number) =>{
             }
         });
         return response.data;
+    }
+    catch (error)
+    {
+        throw new Error(error.response.data.message())
+    }
+}
+
+export const getRental= async () =>{
+    try{
+        const response = await axios.get(`http://localhost:5169/api/Worker/all-rental-operations`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    }
+    catch (error)
+    {
+        throw new Error(error.response.data.message())
+    }
+}
+
+export const giveBook = async(bookId: number, userId: number) =>
+{
+    try {
+        const responce = await axios.post(`http://localhost:5169/api/Worker/give-book/bookId=${bookId}&userId=${userId}`, {bookId, userId}, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return responce.data;
+
     }
     catch (error)
     {

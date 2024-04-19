@@ -54,13 +54,11 @@ public class BookService
     /// <param name="userId"></param>
     /// <param name="bookId"></param>
     /// <returns></returns>
-    public async Task<bool> TakeBook(int userId, int bookId)
+    public async Task<bool> PurchaseBook(int userId, int bookId)
     {
         try
         {
             var book = await _context.Books.FindAsync(bookId);
-
-
             if (book == null || !book.IsAvailable)
             {
                 return false; // Книга не найдена или недоступна
@@ -68,7 +66,6 @@ public class BookService
             
             // Обновляем состояние книги
             book.IsAvailable = false;
-            book.UserId = userId;
             _context.Books.Update(book);
             await _context.SaveChangesAsync();
             return true; // Книга успешно взята пользователем
@@ -79,6 +76,38 @@ public class BookService
             return false; // Обработка ошибки
         }
     }
+    
+    /// <summary>
+    /// Метод для отдачи книги работником 
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <param name="bookId"></param>
+    /// <returns></returns>
+    public async Task<bool> GiveBook(int userId, int bookId)
+    {
+        try
+        {
+            var userOperations = await _context.RentalOperations.
+                Where(ro => ro.UserId == userId)
+                .Where(ro => ro.BookId == bookId)
+                .FirstOrDefaultAsync();
+            var book = await _context.Books.FindAsync(bookId);
+            if (book == null || userOperations == null) return false;
+            book.UserId = userId;
+            userOperations.Status = "Доставлено";
+            // Обновляем состояние книги
+            _context.Books.Update(book);
+            await _context.SaveChangesAsync();
+            return true; // Книга успешно выдана пользователю
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return false; // Обработка ошибки
+        }
+    }
+    
+    
 
     /// <summary>
     /// Метод для возврата книги

@@ -68,22 +68,7 @@ public class AdminController : ControllerBase
         var allUsers = await _userService.GetAllUsers();
         return Ok(allUsers);
     }
-
-    [HttpGet("all-books")]
-    public async Task<IActionResult> GetAllBooks()
-    {
-        // Получение списка всех книг из сервиса книг
-        var allBooks = await _bookService.GetAllBooks();
-        return Ok(allBooks);
-    }
     
-    [HttpGet("all-rental-operations")]
-    [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> GetAllRentalOperations()
-    {
-        var rentalOperations = await _rentalOperationService.GetAllRentalOperationsAsync();
-        return Ok(rentalOperations);
-    }
 
     [HttpPut("edit-user/userId={userId}")]
     [Authorize(Roles = "Admin")]

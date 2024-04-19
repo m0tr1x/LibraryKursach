@@ -7,6 +7,7 @@ import {MyBooksPage} from "./redux/pages/MyBooksPage.tsx";
 import {CreateWorkerPage} from "./redux/pages/CreateWorker.tsx";
 import {AllUsersPage} from "./redux/pages/AllUsers.tsx";
 import {useEffect} from "react";
+import {WorkerOrdersPage} from "./redux/pages/Worker/WorkerOrders.tsx";
 
 function App() {
     useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/user/mybooks" element={<MyBooksPage />} />
                 <Route path="/admin/createworker" element={<CreateWorkerPage />} />
                 <Route path="/admin/allusers" element={<AllUsersPage />} />
+                <Route path="/worker/orders" element={<WorkerOrdersPage />} />
             </Routes>
         </Router>
     );

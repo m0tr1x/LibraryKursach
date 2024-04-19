@@ -53,12 +53,13 @@ public class Program
         builder.Services.AddScoped<BookService>();
         builder.Services.AddScoped<WorkerService>();
         builder.Services.AddScoped<RentalOperationService>();
-
-        builder.Services.AddLogging();
         
         builder.Services.AddDbContext<AppDbContext>();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddControllers();
+        builder.Services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.MaxDepth = 64; //
+        });;
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(c =>
         {

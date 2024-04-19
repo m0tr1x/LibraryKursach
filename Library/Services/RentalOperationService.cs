@@ -21,6 +21,16 @@ public class RentalOperationService
         return await _context.RentalOperations.ToListAsync();
     }
     
+    public async Task<List<RentalOperation>> GetAllAvaliableRentalOperationsAsync()
+    {
+       
+        return await _context.RentalOperations
+            .Where(ro => ro.Status == "Ordered")
+            .Include(ro => ro.Book)
+            .Include(ro => ro.User)
+            .ToListAsync();
+    }
+    
     
     /// <summary>
     /// Метод для добавления арендной операции

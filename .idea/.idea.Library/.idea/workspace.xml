@@ -11,10 +11,20 @@
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/Book.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/Book.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/RentalOperation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/RentalOperation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllUsers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllUsers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +35,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/HomeController.cs из backend 13laba.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c9f57cbe23d44a65a6f883892f576daf219600/79/5e679b9a/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -44,7 +56,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Library: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Library: http.executor&quot;: &quot;Debug&quot;,
     &quot;.NET Launch Settings Profile.Library: https.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -130,6 +142,9 @@
       <workItem from="1713515968045" duration="10007000" />
       <workItem from="1713532260079" duration="400000" />
       <workItem from="1713532892384" duration="236000" />
+      <workItem from="1713553909197" duration="7466000" />
+      <workItem from="1713561399637" duration="1208000" />
+      <workItem from="1713562622414" duration="202000" />
     </task>
     <servers />
   </component>
@@ -177,6 +192,73 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Services/RentalOperationService.cs</url>
+          <line>26</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" initialLine="26" containingFunctionPresentation="Method 'GetAllAvaliableRentalOperationsAsync'">
+            <startOffsets>
+              <option value="712" />
+            </startOffsets>
+            <endOffsets>
+              <option value="814" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
+          <line>93</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="93" containingFunctionPresentation="Method 'GiveBook'">
+            <startOffsets>
+              <option value="2708" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2758" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
+          <line>94</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="94" containingFunctionPresentation="Method 'GiveBook'">
+            <startOffsets>
+              <option value="2770" />
+              <option value="2813" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2812" />
+              <option value="2826" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
+          <line>89</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="89" containingFunctionPresentation="Method 'GiveBook'">
+            <startOffsets>
+              <option value="2503" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2695" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Controllers/WorkerController.cs</url>
+          <line>101</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" initialLine="101" containingFunctionPresentation="Method 'GiveBook'">
+            <startOffsets>
+              <option value="2850" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2906" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

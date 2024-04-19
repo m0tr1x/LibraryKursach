@@ -42,12 +42,12 @@ public class UserController : ControllerBase
             return Ok(availableBooks);
         }
 
-        [HttpPost("take-book/bookId={bookId}")]
-        public async Task<IActionResult> TakeBook(int bookId)
+        [HttpPost("purshace-book/bookId={bookId}")]
+        public async Task<IActionResult> PurshaceBook(int bookId)
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             // Попытаться взять книгу у сервиса книг
-            var success = await _bookService.TakeBook(userId, bookId);
+            var success = await _bookService.PurchaseBook(userId, bookId);
             if (success)
             {
                 var rentalOperation = new RentalOperation
@@ -55,6 +55,7 @@ public class UserController : ControllerBase
                     UserId = userId,
                     BookId = bookId,
                     StartDate = DateTime.UtcNow,
+                    Status = "Ordered"
                 };
 
                 try
@@ -68,7 +69,7 @@ public class UserController : ControllerBase
                 }
 
 
-                return Ok("Книга успешно взята.");
+                return Ok("Книга успешно заказана.");
             }
             else
             {

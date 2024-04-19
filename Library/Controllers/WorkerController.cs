@@ -16,9 +16,11 @@ public class WorkerController : ControllerBase
 {
     private readonly BookService _bookService;
     private readonly WorkerService _workerService;
+    private readonly RentalOperationService _rentalOperationService;
 
-    public WorkerController(BookService bookService, WorkerService workerService)
+    public WorkerController(BookService bookService, WorkerService workerService, RentalOperationService rentalOperationService)
     {
+        _rentalOperationService = rentalOperationService;
         _bookService = bookService;
         _workerService = workerService;
     }
@@ -93,6 +95,21 @@ public class WorkerController : ControllerBase
             return BadRequest("Автор с таким именем уже существует.");
         }
     }
-
+    
+    [HttpPost("give-book/bookId={bookId}&userId={userId}")]
+    public async Task<IActionResult> GiveBook(int bookId, int userId)
+    {
+        var result = await _bookService.GiveBook(userId,bookId);
+        if(result) return Ok("Книга выдана пользователю");
+        else return BadRequest("Не удалось выдать книгу");
+    }
+    
+    [HttpGet("all-rental-operations")]
+    [Authorize(Roles = "Worker")]
+    public async Task<IActionResult> GetAllRentalOperations()
+    {
+        var rentalOperations = await _rentalOperationService.GetAllAvaliableRentalOperationsAsync();
+        return Ok(rentalOperations);
+    }
 
 }

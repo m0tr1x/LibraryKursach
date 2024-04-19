@@ -1,21 +1,25 @@
 import {Button, Col, Row} from "react-bootstrap";
 import {useEffect, useState} from "react";
-import {getAvailableBooks, getBook} from "../../api/api.tsx";
+import {getAvailableBooks, purchaseBook} from "../../api/api.tsx";
 import Card from "react-bootstrap/Card";
 import {IBook} from "../Interfaces/IBook.tsx";
+import {jwtDecode} from "jwt-decode";
 
 
 
 export function AllBooksPage()
 {
     const [availableBooks, setAvailableBooks] = useState<IBook[]>([]);
+    const token: string = localStorage.getItem('token')
+    // Декодируем токен
+    const decodedToken = jwtDecode(token);
+    // Получаем необходимые поля из декодированного токена
+    const id = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/id'];
 
 
-
-    const handleTakeBook = async (bookId:number) => {
+    const handlePurchaseBook = async (bookId:number, userId:number) => {
         try {
-            await getBook(bookId);
-            // Обработка успешного взятия книги
+            await purchaseBook(bookId,userId);
             loadAvailableBooks();
         } catch (error) {
             console.error('Ошибка при взятии книги:', error);
@@ -51,7 +55,7 @@ export function AllBooksPage()
                                     <Card.Text>
                                         {book.authorName}
                                     </Card.Text>
-                                    <Button variant="primary" onClick={() => handleTakeBook(book.id)}>Взять книгу</Button>
+                                    <Button variant="primary" onClick={() => handlePurchaseBook(book.id,id)}>Забронировать книгу</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
