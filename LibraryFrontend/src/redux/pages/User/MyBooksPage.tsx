@@ -1,9 +1,9 @@
 import {Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import {useEffect, useState} from "react";
-import {IBook} from "../Interfaces/IBook.tsx";
+import {IBook} from "../../Interfaces/IBook.tsx";
 import { Button } from 'react-bootstrap';
-import { getMyBooks, returnBook} from "../../api/api.tsx";
+import { getMyBooks, returnBook} from "../../../api/api.tsx";
 
 export function MyBooksPage()
 {

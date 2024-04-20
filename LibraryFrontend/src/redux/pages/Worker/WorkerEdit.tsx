@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import {Button, Modal, Form, Table,Alert} from "react-bootstrap";
 import {addAuthor, addBook, addGenre, getAvailableBooks, editBook, deleteBook} from "../../../api/api.tsx";
 import {IBook} from "../../Interfaces/IBook.tsx";
-import {AxiosError} from "axios";
 
 export function WorkerEditPage() {
     const [showEditModal, setShowEditModal] = useState(false);
@@ -68,7 +67,7 @@ export function WorkerEditPage() {
             setShowErrorMessage(false);
             // Обновление данных после редактирования книги
             loadAvailableBooks();
-        } catch (error: AxiosError) {
+        } catch (error) {
             console.log(error);
             setShowErrorMessage(true);
             setErrorMessage(error.message); // Предполагается, что сообщение об ошибке приходит с сервера
@@ -84,8 +83,8 @@ export function WorkerEditPage() {
             await deleteBook(bookId);
             // Обновление данных после удаления книги
             loadAvailableBooks();
-        } catch (error: AxiosError) {
-            setErrorMessage(error.responsea); // Предполагается, что сообщение об ошибке приходит с сервера
+        } catch (error) {
+            setErrorMessage(error.response); // Предполагается, что сообщение об ошибке приходит с сервера
             console.error("Ошибка при удалении книги:", error);
         }
     };

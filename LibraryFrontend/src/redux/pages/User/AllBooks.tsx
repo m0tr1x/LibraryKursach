@@ -1,8 +1,8 @@
-import {Button, Col, Row} from "react-bootstrap";
+import {Button, CardFooter, Col, ListGroup, ListGroupItem, Row} from "react-bootstrap";
 import {useEffect, useState} from "react";
-import {getAvailableBooks, purchaseBook} from "../../api/api.tsx";
+import {getAvailableBooks, purchaseBook} from "../../../api/api.tsx";
 import Card from "react-bootstrap/Card";
-import {IBook} from "../Interfaces/IBook.tsx";
+import {IBook} from "../../Interfaces/IBook.tsx";
 import {jwtDecode} from "jwt-decode";
 
 
@@ -52,11 +52,22 @@ export function AllBooksPage()
                             <Card style={{ width: '18rem' }}>
                                 <Card.Body>
                                     <Card.Title>{book.title}</Card.Title>
-                                    <Card.Text>
-                                        {book.authorName}
-                                    </Card.Text>
-                                    <Button variant="primary" onClick={() => handlePurchaseBook(book.id,id)}>Забронировать книгу</Button>
+                                    <ListGroup>
+                                        <ListGroupItem>
+                                            <Card.Text>
+                                                {book.title}
+                                            </Card.Text>
+                                        </ListGroupItem>
+                                        <ListGroupItem>
+                                            <Card.Text>
+                                                {book.author.name}
+                                            </Card.Text>
+                                        </ListGroupItem>
+                                    </ListGroup>
                                 </Card.Body>
+                                <CardFooter style={{ display: 'flex', justifyContent: 'center'}}>
+                                    <Button variant="primary" onClick={() => handlePurchaseBook(book.id,id)}>Забронировать книгу</Button>
+                                </CardFooter>
                             </Card>
                         </Col>
                     ))}

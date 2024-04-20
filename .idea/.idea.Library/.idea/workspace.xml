@@ -10,7 +10,14 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User/AllBooks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllUsers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Admin/AllUsers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/CreateWorker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Admin/CreateWorker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/MyBooksPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User/MyBooksPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +202,7 @@
       <workItem from="1713593388226" duration="4987000" />
       <workItem from="1713599397407" duration="1953000" />
       <workItem from="1713601382480" duration="212000" />
-      <workItem from="1713601601442" duration="11841000" />
+      <workItem from="1713601601442" duration="15567000" />
     </task>
     <servers />
   </component>
