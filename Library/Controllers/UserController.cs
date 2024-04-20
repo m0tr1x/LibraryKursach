@@ -64,8 +64,7 @@ public class UserController : ControllerBase
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("An error occurred while adding a rental operation:");
-                    Console.WriteLine(ex.Message);
+                   throw new Exception(ex.Message);
                 }
 
 

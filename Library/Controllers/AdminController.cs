@@ -70,7 +70,7 @@ public class AdminController : ControllerBase
     }
     
 
-    [HttpPut("edit-user/userId={userId}")]
+    [HttpPut("edit-user/userId={userI}&&email={email}&&name={name}&&role={role}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> EditUser(int userId, string email, string name, Role role)
     {

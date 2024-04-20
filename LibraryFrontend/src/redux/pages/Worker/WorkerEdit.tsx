@@ -1,14 +1,15 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import {Button, Modal, Form, Table} from "react-bootstrap";
-import {addAuthor, addBook, addGenre, getAvailableBooks} from "../../../api/api.tsx";
+import {addAuthor, addBook, addGenre, getAvailableBooks, editBook, deleteBook} from "../../../api/api.tsx";
 import {IBook} from "../../Interfaces/IBook.tsx";
 
 export function WorkerEditPage() {
     const [showEditModal, setShowEditModal] = useState(false);
-    const [editedBook, setEditedBook] = useState({});
-    const [editedTitle, setEditedTitle] = useState("");
-    const [editedAuthorId, setEditedAuthorId] = useState(0);
-    const [editedGenreId, setEditedGenreId] = useState(0);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [editedBook, setEditedBook] = useState<IBook | null>(null);
+    const [editTitle, setEditTitle] = useState("");
+    const [editAuthor, setEditAuthor] = useState("");
+    const [editGenre, setEditGenre] = useState("");
     const [showAddBookModal, setShowAddBookModal] = useState(false);
     const [showAddAuthorModal, setShowAddAuthorModal] = useState(false);
     const [showAddGenreModal, setShowAddGenreModal] = useState(false);
@@ -21,27 +22,38 @@ export function WorkerEditPage() {
 
 
 
-    const handleShowEditModal = (book) => {
-        setEditedBook(book);
-        setEditedTitle(book.title);
-        setEditedAuthorId(book.authorId);
-        setEditedGenreId(book.genreId);
+    const handleShowEditModal = (book :IBook) => {
         setShowEditModal(true);
+        setEditedBook(book);
+        setEditTitle(book.title);
+        setEditAuthor(book.author.name);
+        setEditGenre(book.genre.name);
+
     };
 
     // Функция для сохранения изменений после редактирования книги
+    // Функция для сохранения изменений после редактирования книги
     const handleSaveChanges = async () => {
         try {
-            // Вызов функции для редактирования книги
-            await editBook(editedBook.id, editedTitle, editedAuthorId, editedGenreId);
+            // Проверка полей ввода на пустоту и выбор между новыми и старыми данными
+            const newTitle = editTitle.trim() !== "" ? editTitle : editedBook?.title;
+            const newAuthorName = editAuthor.trim() !== "" ? editAuthor : editedBook?.author.name;
+            const newGenreName = editGenre.trim() !== "" ? editGenre : editedBook?.genre.name;
+
+            // Вызов функции для редактирования книги с использованием выбранных данных
+            await editBook(editedBook.id, newTitle, newAuthorName, newGenreName);
+
             // Закрытие модального окна редактирования
             setShowEditModal(false);
             // Обновление данных после редактирования книги
             // Например, можно отправить запрос для получения обновленного списка книг и обновить состояние страницы
         } catch (error) {
+            setErrorMessage(error.response.data); // Предполагается, что сообщение об ошибке приходит с сервера
+            alert(errorMessage);
             console.error("Ошибка при редактировании книги:", error);
         }
     };
+
 
     // Функция для удаления книги
     const handleDeleteBook = async (bookId : number) => {
@@ -51,6 +63,8 @@ export function WorkerEditPage() {
             // Обновление данных после удаления книги
             // Например, можно отправить запрос для получения обновленного списка книг и обновить состояние страницы
         } catch (error) {
+            setErrorMessage(error.response.data); // Предполагается, что сообщение об ошибке приходит с сервера
+            alert(errorMessage);
             console.error("Ошибка при удалении книги:", error);
         }
     };
@@ -62,6 +76,8 @@ export function WorkerEditPage() {
             // Добавьте здесь логику для обработки успешного добавления книги, например, закрытие модального окна и обновление данных
             handleCloseAddBookModal();
         } catch (error) {
+            setErrorMessage(error.response.data); // Предполагается, что сообщение об ошибке приходит с сервера
+            alert(errorMessage);
             console.error("Ошибка при добавлении книги:", error);
             // Добавьте здесь логику для обработки ошибки при добавлении книги
         }
@@ -73,6 +89,8 @@ export function WorkerEditPage() {
             console.log("Автор успешно добавлен:", response);
             handleCloseAddAuthorModal();
         } catch (error) {
+            setErrorMessage(error.response.data); // Предполагается, что сообщение об ошибке приходит с сервера
+            alert(errorMessage);
             console.error("Ошибка при добавлении автора:", error);
         }
     };
@@ -84,6 +102,8 @@ export function WorkerEditPage() {
             console.log("Жанр успешно добавлен:", response);
             handleCloseAddGenreModal();
         } catch (error) {
+            setErrorMessage(error.response.data); // Предполагается, что сообщение об ошибке приходит с сервера
+            alert(errorMessage);
             console.error("Ошибка при добавлении жанра:", error);
         }
     };
@@ -96,6 +116,9 @@ export function WorkerEditPage() {
             // Обработка ошибки загрузки доступных книг
         }
     };
+    useEffect(() => {
+        loadAvailableBooks();
+    }, []);
 
     const handleCloseAddBookModal = () => setShowAddBookModal(false);
     const handleShowAddBookModal = () => setShowAddBookModal(true);
@@ -105,6 +128,9 @@ export function WorkerEditPage() {
 
     const handleCloseAddGenreModal = () => setShowAddGenreModal(false);
     const handleShowAddGenreModal = () => setShowAddGenreModal(true);
+
+    const handleCloseEditModal = () => setShowEditModal(false);
+
 
     return (
         <>
@@ -188,7 +214,7 @@ export function WorkerEditPage() {
                     </Modal.Footer>
                 </Modal>
             </div>
-            <div>
+            <div style={{marginTop:"20px"}}>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
@@ -206,8 +232,8 @@ export function WorkerEditPage() {
                         <tr key={book.id}>
                             <td>{index + 1}</td>
                             <td>{book.title}</td>
-                            <td>{book.author}</td>
-                            <td>{book.genre}</td>
+                            <td>{book.author.name}</td>
+                            <td>{book.genre.name}</td>
                             <td>
                                 <Button variant="primary" onClick={() => handleShowEditModal(book)}>Редактировать</Button>
                                 <Button variant="danger" onClick={() => handleDeleteBook(book.id)}>Удалить</Button>
@@ -216,6 +242,35 @@ export function WorkerEditPage() {
                     ))}
                     </tbody>
                 </Table>
+
+                <Modal show={showEditModal} onHide={handleCloseEditModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Добавить книгу</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form>
+                            <Form.Group controlId="formBookTitle">
+                                <Form.Label>Название книги</Form.Label>
+                                <Form.Control type="text" placeholder="Введите название книги"
+                                              onChange={(e) => setEditTitle(e.target.value)}/>
+                            </Form.Group>
+                            <Form.Group controlId="formBookAuthor">
+                                <Form.Label>Автор</Form.Label>
+                                <Form.Control type="text" placeholder="Введите автора книги"
+                                              onChange={(e) => setAuthorName(e.target.value)}/>
+                            </Form.Group>
+                            <Form.Group controlId="formBookGenre">
+                                <Form.Label>Жанр</Form.Label>
+                                <Form.Control type="text" placeholder="Введите жанр книги"
+                                              onChange={(e) => setGenreName(e.target.value)}/>
+                            </Form.Group>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseEditModal}>Закрыть</Button>
+                        <Button style={{marginLeft:"20px"}}variant="primary" onClick={handleSaveChanges}>Применить</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
 
         </>

@@ -30,7 +30,7 @@ export const register = async (name: string, email: string, password: string, ro
 };
 export const getAvailableBooks = async () => {
     try {
-        const responce = await axios.get('http://localhost:5169/api/User/available-books', {
+        const responce = await axios.get('http://localhost:5169/api/Home/available-books', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
@@ -237,6 +237,26 @@ export const deleteBook= async (bookId: number) =>{
     {
         throw new Error(error.message())
     }
+}
+
+
+export const editBook = async(bookId: number, title:string, author:string,genre:string) =>{
+    try {
+        const response = await axios.put(`http://localhost:5169/api/Worker/edit-book/bookId=${bookId}&&title=${title}&&author=${author}&&genre=${genre}`, {bookId, title,author,genre},{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        return response.data
+    }
+    catch (error)
+    {
+        console.log(error.response.status);
+        console.log(error.response.message);
+        throw new Error(error.message());
+
+    };
 }
 
 

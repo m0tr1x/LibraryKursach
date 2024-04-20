@@ -138,25 +138,25 @@ public class BookService
     /// <param name="bookId"></param>
     /// <param name="updatedBook"></param>
     /// <returns></returns>
-    public async Task<bool> EditBookAsync(int bookId, BookModel updatedBook)
+    public async Task<bool> EditBookAsync(int bookId, string title, string author, string genre)
     {
         var authorId = _context.Authors
-            .Where(a => a.Name == updatedBook.Author)
+            .Where(a => a.Name == author)
             .Select(a => a.Id)
             .FirstOrDefault();
 
         var genreId = _context.Genres
-            .Where(g => g.Name == updatedBook.Genre)
+            .Where(g => g.Name == genre)
             .Select(g => g.Id)
             .FirstOrDefault();
         
         if(authorId == 0 || genreId == 0) throw new ArgumentException("Неизвестный автор или жанр");
-        if(await _context.Books.AnyAsync(b => (b.Title == updatedBook.Title && b.AuthorId == authorId && b.GenreId == genreId))) throw new ArgumentException("Такая книга уже существует");;
+        if(await _context.Books.AnyAsync(b => (b.Title == title && b.AuthorId == authorId && b.GenreId == genreId))) throw new ArgumentException("Такая книга уже существует");;
         var existingBook = await _context.Books.FindAsync(bookId);
         if (existingBook == null) throw new ArgumentException("Книга не найдена");
 
         // Обновляем данные книги
-        existingBook.Title = updatedBook.Title;
+        existingBook.Title = title;
         existingBook.AuthorId = authorId;
         existingBook.GenreId = genreId; 
 

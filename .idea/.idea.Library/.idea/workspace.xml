@@ -10,15 +10,13 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Models/BookModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/BookModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Services/WorkerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/WorkerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerOrders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +27,34 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -70,7 +96,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.Library: http.executor": "Run",
+    ".NET Launch Settings Profile.Library: http.executor": "Debug",
     ".NET Launch Settings Profile.Library: https.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -168,7 +194,7 @@
       <workItem from="1713593388226" duration="4987000" />
       <workItem from="1713599397407" duration="1953000" />
       <workItem from="1713601382480" duration="212000" />
-      <workItem from="1713601601442" duration="4583000" />
+      <workItem from="1713601601442" duration="9746000" />
     </task>
     <servers />
   </component>
@@ -192,31 +218,31 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" log-message="true" type="DotNet Breakpoints">
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Library/Controllers/WorkerController.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" initialLine="30" containingFunctionPresentation="Method 'AddBook'">
+          <line>59</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" initialLine="59" containingFunctionPresentation="Method 'DeleteBook'">
             <startOffsets>
-              <option value="898" />
+              <option value="1734" />
             </startOffsets>
             <endOffsets>
-              <option value="1213" />
+              <option value="1985" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="57" />
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Controllers/AuthConroller.cs</url>
-          <line>27</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" initialLine="27" containingFunctionPresentation="Method 'Login'">
+          <url>file://$PROJECT_DIR$/Library/Controllers/WorkerController.cs</url>
+          <line>45</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" initialLine="45" containingFunctionPresentation="Method 'EditBook'">
             <startOffsets>
-              <option value="757" />
+              <option value="1424" />
             </startOffsets>
             <endOffsets>
-              <option value="893" />
+              <option value="1701" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="58" />
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -9,9 +9,11 @@ namespace Library.Controllers
     public class HomeController : ControllerBase
     {
         private readonly UserService _userService; // Используйте ваш сервис UserService вместо контекста и конфигурации
+        private readonly BookService _bookService;
 
-        public HomeController(UserService userService) // Внедрите UserService в конструктор контроллера
+        public HomeController(UserService userService, BookService bookService) // Внедрите UserService в конструктор контроллера
         {
+            _bookService = bookService;
             _userService = userService;
         }
 
@@ -29,6 +31,14 @@ namespace Library.Controllers
             var newUser = await _userService.Register(registerModel);
 
             return Ok("Пользователь успешно зарегистрирован");
+        }
+        
+        [HttpGet("available-books")]
+        public async Task<IActionResult> GetAvailableBooks()
+        {
+            // Получить список доступных книг в библиотеке из сервиса книг
+            var availableBooks = await _bookService.GetAvailableBooks();
+            return Ok(availableBooks);
         }
     }
 }

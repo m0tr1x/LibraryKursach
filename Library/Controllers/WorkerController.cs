@@ -40,17 +40,17 @@ public class WorkerController : ControllerBase
         }
     }
 
-    [HttpPut("edit-book/bookId={bookId}")]
-    public async Task<IActionResult> EditBook(int bookId, BookModel model)
+    [HttpPut("edit-book/bookId={bookId}&&title={title}&&author={author}&&genre={genre}")]
+    public async Task<IActionResult> EditBook(int bookId, string title, string author, string genre)
     {
         try
         {
-            var editedBook = await _bookService.EditBookAsync(bookId, model);
-            return Ok(editedBook);
+            var editedBook = await _bookService.EditBookAsync(bookId, title, author, genre);
+            return Ok("Книга успешно обновлена");
         }
         catch (Exception ex)
         {
-            return BadRequest($"Server error: {ex.Message}");
+            return BadRequest(ex.Message);
         }
     }
     
@@ -112,5 +112,7 @@ public class WorkerController : ControllerBase
         var rentalOperations = await _rentalOperationService.GetAllAvaliableRentalOperationsAsync();
         return Ok(rentalOperations);
     }
+    
+    
 
 }
