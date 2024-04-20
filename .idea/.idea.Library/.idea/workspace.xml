@@ -10,21 +10,15 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Models/Book.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/Book.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Models/RentalOperation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/RentalOperation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Models/BookModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Models/BookModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Services/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/BookService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Services/WorkerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/WorkerService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerOrders.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +29,26 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/HomeController.cs из backend 13laba.cs" root0="SKIP_HIGHLIGHTING" />
@@ -54,30 +68,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Library: http.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.Library: https.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.072186835&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Library: http.executor": "Run",
+    ".NET Launch Settings Profile.Library: https.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.072186835",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Inspections-C#",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
-      &quot;/Users/mtrx/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/mtrx/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/mtrx/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CidrLocalAttachDebugger.recentlyUsed">
+      <recent name="com.jetbrains.rider.cpp.debugger.RiderCppLLDBDriverConfiguration" />
+    </key>
+  </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Library: http">
     <configuration name="Library: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Library/Library.csproj" />
@@ -102,6 +121,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser with-js-debugger="true" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -144,7 +164,11 @@
       <workItem from="1713532892384" duration="236000" />
       <workItem from="1713553909197" duration="7466000" />
       <workItem from="1713561399637" duration="1208000" />
-      <workItem from="1713562622414" duration="202000" />
+      <workItem from="1713562622414" duration="408000" />
+      <workItem from="1713593388226" duration="4987000" />
+      <workItem from="1713599397407" duration="1953000" />
+      <workItem from="1713601382480" duration="212000" />
+      <workItem from="1713601601442" duration="4583000" />
     </task>
     <servers />
   </component>
@@ -168,99 +192,37 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
-          <line>42</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="42" containingFunctionPresentation="Method 'TakeBook'" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
-          <line>50</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="50" containingFunctionPresentation="Method 'TakeBook'" />
-          <option name="timeStamp" value="5" />
+        <line-breakpoint enabled="true" log-message="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Controllers/WorkerController.cs</url>
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" initialLine="30" containingFunctionPresentation="Method 'AddBook'">
+            <startOffsets>
+              <option value="898" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1213" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Library/Controllers/AuthConroller.cs</url>
           <line>27</line>
           <properties documentPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" initialLine="27" containingFunctionPresentation="Method 'Login'">
             <startOffsets>
-              <option value="758" />
+              <option value="757" />
             </startOffsets>
             <endOffsets>
-              <option value="894" />
+              <option value="893" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Services/RentalOperationService.cs</url>
-          <line>26</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/RentalOperationService.cs" initialLine="26" containingFunctionPresentation="Method 'GetAllAvaliableRentalOperationsAsync'">
-            <startOffsets>
-              <option value="712" />
-            </startOffsets>
-            <endOffsets>
-              <option value="814" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
-          <line>93</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="93" containingFunctionPresentation="Method 'GiveBook'">
-            <startOffsets>
-              <option value="2708" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2758" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
-          <line>94</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="94" containingFunctionPresentation="Method 'GiveBook'">
-            <startOffsets>
-              <option value="2770" />
-              <option value="2813" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2812" />
-              <option value="2826" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Services/BookService.cs</url>
-          <line>89</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Services/BookService.cs" initialLine="89" containingFunctionPresentation="Method 'GiveBook'">
-            <startOffsets>
-              <option value="2503" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2695" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Library/Controllers/WorkerController.cs</url>
-          <line>101</line>
-          <properties documentPath="$PROJECT_DIR$/Library/Controllers/WorkerController.cs" initialLine="101" containingFunctionPresentation="Method 'GiveBook'">
-            <startOffsets>
-              <option value="2850" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2906" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="31" />
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

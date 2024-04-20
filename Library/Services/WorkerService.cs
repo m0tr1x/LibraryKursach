@@ -63,32 +63,29 @@ public class WorkerService
     /// <returns></returns>
     public async Task<bool> AddBookAsync(BookModel model)
     {
+        var authorId = _context.Authors
+            .Where(a => a.Name == model.Author)
+            .Select(a => a.Id)
+            .FirstOrDefault();
+
+        var genreId = _context.Genres
+            .Where(g => g.Name == model.Genre)
+            .Select(g => g.Id)
+            .FirstOrDefault();
         // Проверяем, существует ли книга с таким названием
-        if (await _context.Books.AnyAsync(b => b.Title == model.Title))
-        {
-            return false; // Книга с таким названием уже существует
-        }
+        if (await _context.Books.AnyAsync(b => b.Title == model.Title)) throw new Exception("Книга с таким названием уже существует");
 
         // Проверяем, существует ли автор с указанным идентификатором
-        var author = await _context.Authors.FindAsync(model.AuthorId);
-        if (author == null)
-        {
-            return false; // Автор не найден
-        }
+        if(authorId == 0) throw new Exception("Автор не найден");
 
-        // Проверяем, существует ли жанр с указанным идентификатором
-        var genre = await _context.Genres.FindAsync(model.GenreId);
-        if (genre == null)
-        {
-            return false; // Жанр не найден
-        }
+        if( genreId == 0) throw new Exception("Жанр не найден");
 
         // Создаем новую книгу
         var newBook = new Book
         {
             Title = model.Title,
-            AuthorId = model.AuthorId,
-            GenreId = model.GenreId,
+            AuthorId = authorId,
+            GenreId = genreId,
             IsAvailable = true // Новая книга доступна
         };
 

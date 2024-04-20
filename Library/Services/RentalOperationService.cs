@@ -27,6 +27,7 @@ public class RentalOperationService
         return await _context.RentalOperations
             .Where(ro => ro.Status == "Ordered")
             .Include(ro => ro.Book)
+            .Include(ro => ro.Book.Author)
             .Include(ro => ro.User)
             .ToListAsync();
     }

@@ -140,16 +140,25 @@ public class BookService
     /// <returns></returns>
     public async Task<bool> EditBookAsync(int bookId, BookModel updatedBook)
     {
+        var authorId = _context.Authors
+            .Where(a => a.Name == updatedBook.Author)
+            .Select(a => a.Id)
+            .FirstOrDefault();
+
+        var genreId = _context.Genres
+            .Where(g => g.Name == updatedBook.Genre)
+            .Select(g => g.Id)
+            .FirstOrDefault();
+        
+        if(authorId == 0 || genreId == 0) throw new ArgumentException("Неизвестный автор или жанр");
+        if(await _context.Books.AnyAsync(b => (b.Title == updatedBook.Title && b.AuthorId == authorId && b.GenreId == genreId))) throw new ArgumentException("Такая книга уже существует");;
         var existingBook = await _context.Books.FindAsync(bookId);
-        if (existingBook == null)
-        {
-            return false; // Книга не найдена
-        }
+        if (existingBook == null) throw new ArgumentException("Книга не найдена");
 
         // Обновляем данные книги
         existingBook.Title = updatedBook.Title;
-        existingBook.AuthorId = updatedBook.AuthorId;
-        existingBook.GenreId = updatedBook.GenreId;
+        existingBook.AuthorId = authorId;
+        existingBook.GenreId = genreId; 
 
         // Сохраняем изменения в базе данных
         _context.Books.Update(existingBook);

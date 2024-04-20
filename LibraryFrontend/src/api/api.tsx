@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {Role} from "../redux/Interfaces/Role.tsx";
-import {IUser} from "../redux/Interfaces/IUser.tsx";
+
 
 
 export const login = async (email: string, password: string) => {
@@ -154,7 +154,7 @@ export const getRental= async () =>{
     {
         throw new Error(error.response.data.message())
     }
-}
+};
 
 export const giveBook = async(bookId: number, userId: number) =>
 {
@@ -171,6 +171,71 @@ export const giveBook = async(bookId: number, userId: number) =>
     catch (error)
     {
         throw new Error(error.response.data.message())
+    }
+};
+
+export const addBook = async (title: string, author: string, genre: string) => {
+    try {
+        const response = await axios.post(`http://localhost:5169/api/Worker/add-book`, { title, author, genre }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+
+    } catch (error) {
+        console.log(error.message)
+        throw new Error(error.message);
+    }
+}
+
+
+export const addAuthor = async (title: string) => {
+    try {
+        const response = await axios.post(`http://localhost:5169/api/Worker/add-author/authorName=${title}`, { title }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+
+    } catch (error) {
+        throw new Error(error.response.data);
+    }
+}
+
+
+export const addGenre = async (title: string) => {
+    try {
+        const response = await axios.post(`http://localhost:5169/api/Worker/add-genre/genreName=${title}`, { title}, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+
+    } catch (error) {
+        throw new Error(error.response.data);
+    }
+}
+
+
+export const deleteBook= async (bookId: number) =>{
+    try{
+        const response = await axios.delete(`http://localhost:5169/api/Worker/delete-book/bookId=${bookId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    }
+    catch (error)
+    {
+        throw new Error(error.message())
     }
 }
 

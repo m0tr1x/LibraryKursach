@@ -43,9 +43,11 @@ export function UserPage() {
                                 </Nav.Item>
                             )}
                             {role === 'Worker' && (
-                                <>
+                                <><Nav.Item>
                                     <Nav.Link as={Link} to="/worker/orders">Выдача заказов</Nav.Link>
+                                    <Nav.Link as={Link} to="/worker/edit">Редактирование</Nav.Link>
                                     <Nav.Link as={Link} to="/" onClick={() => logOut()}>Выйти из аккаунта</Nav.Link>
+                                </Nav.Item>
                                 </>
                             )}
                         </Nav>

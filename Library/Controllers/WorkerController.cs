@@ -26,21 +26,22 @@ public class WorkerController : ControllerBase
     }
     
     [HttpPost("add-book")]
-    public async Task<IActionResult> AddBook([FromBody] BookModel model)
+    public async Task<IActionResult> AddBook(BookModel model)
     {
         try
         {
             var addedBook = await _workerService.AddBookAsync(model);
-            return Ok(addedBook);
+            if (addedBook) return Ok("Книга успешно добавлена");
+            else return BadRequest("Не удалось добавить книгу");
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return BadRequest(ex.Message);
         }
     }
 
     [HttpPut("edit-book/bookId={bookId}")]
-    public async Task<IActionResult> EditBook(int bookId, [FromBody] BookModel model)
+    public async Task<IActionResult> EditBook(int bookId, BookModel model)
     {
         try
         {
@@ -49,11 +50,11 @@ public class WorkerController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return BadRequest($"Server error: {ex.Message}");
         }
     }
     
-    [HttpPut("delete-book/bookId={bookId}")]
+    [HttpDelete("delete-book/bookId={bookId}")]
     public async Task<IActionResult> DeleteBook(int bookId)
     {
         try
@@ -68,7 +69,7 @@ public class WorkerController : ControllerBase
     }
 
     
-    [HttpPost("add-genre")]
+    [HttpPost("add-genre/genreName={genreName}")]
     public async Task<IActionResult> AddGenre(string genreName)
     {
         var success = await _workerService.AddGenre(genreName);
@@ -82,7 +83,7 @@ public class WorkerController : ControllerBase
         }
     }
 
-    [HttpPost("add-author")]
+    [HttpPost("add-author/authorName={authorName}")]
     public async Task<IActionResult> AddAuthor(string authorName)
     {
         var success = await _workerService.AddAuthor(authorName);
