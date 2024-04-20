@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosError} from 'axios';
 import {Role} from "../redux/Interfaces/Role.tsx";
 
 
@@ -13,7 +13,7 @@ export const login = async (email: string, password: string) => {
             });
         const token = response.data; // Предполагается, что токен возвращается в свойстве token
         return token;
-    } catch (error) {
+    } catch (error: AxiosError) {
 
         throw new Error('Unauthorized');
     }
@@ -24,7 +24,7 @@ export const register = async (name: string, email: string, password: string, ro
     try {
         const response = await axios.post('http://localhost:5169/api/Home/register', {name, email, password, role});
         return response;
-    } catch (error) {
+    } catch (error : AxiosError) {
         throw new Error(error.response.data.message);
     }
 };
@@ -38,7 +38,7 @@ export const getAvailableBooks = async () => {
         });
         return responce.data;
 
-    } catch (error) {
+    } catch (error: AxiosError) {
         throw new Error(error.response.data.message())
     }
 };
@@ -68,7 +68,7 @@ export const purchaseBook = async (bookId: number, userId: number) => {
         });
         return responce.data;
 
-    } catch (error) {
+    } catch (error: AxiosError) {
         throw new Error(error.response.data.message())
     }
 };
@@ -82,7 +82,7 @@ export const returnBook = async (bookId: number) => {
         });
         return responce.data;
 
-    } catch (error) {
+    } catch (error: AxiosError) {
         throw new Error(error.response.data.message())
     }
 };
@@ -90,7 +90,7 @@ export const returnBook = async (bookId: number) => {
 export const logOut = async () => {
     try {
         localStorage.removeItem('token');
-    } catch (error) {
+    } catch (error: AxiosError) {
         throw new Error(error.message)
     }
 }
@@ -105,7 +105,7 @@ export const getAllUsers = async () => {
         });
         return responce.data;
 
-    } catch (error) {
+    } catch (error: AxiosError) {
         throw new Error(error.response.data.message())
     }
 }
@@ -119,7 +119,7 @@ export const changeUserData = async (userId:number, email: string, name:string, 
             }
         });
         return response.data;
-    } catch (error) {
+    } catch (error: AxiosError) {
         throw new Error(error.response.data.message());
     }
 };
@@ -150,7 +150,7 @@ export const getRental= async () =>{
         });
         return response.data;
     }
-    catch (error)
+    catch (error: AxiosError)
     {
         throw new Error(error.response.data.message())
     }
@@ -168,7 +168,7 @@ export const giveBook = async(bookId: number, userId: number) =>
         return responce.data;
 
     }
-    catch (error)
+    catch (error: AxiosError)
     {
         throw new Error(error.response.data.message())
     }
@@ -184,9 +184,9 @@ export const addBook = async (title: string, author: string, genre: string) => {
         });
         return response.data;
 
-    } catch (error) {
-        console.log(error.message)
-        throw new Error(error.message);
+    } catch (error: AxiosError) {
+        console.log(error.response.data)
+        throw new Error(error.response.data);
     }
 }
 
@@ -201,7 +201,8 @@ export const addAuthor = async (title: string) => {
         });
         return response.data;
 
-    } catch (error) {
+    }catch (error: AxiosError) {
+        console.log(error.response.data)
         throw new Error(error.response.data);
     }
 }
@@ -217,7 +218,8 @@ export const addGenre = async (title: string) => {
         });
         return response.data;
 
-    } catch (error) {
+    } catch (error: AxiosError) {
+        console.log(error.response.data)
         throw new Error(error.response.data);
     }
 }
@@ -233,9 +235,9 @@ export const deleteBook= async (bookId: number) =>{
         });
         return response.data;
     }
-    catch (error)
-    {
-        throw new Error(error.message())
+    catch (error: AxiosError) {
+        console.log(error.response.data)
+        throw new Error(error.response.data);
     }
 }
 
@@ -250,13 +252,10 @@ export const editBook = async(bookId: number, title:string, author:string,genre:
         })
         return response.data
     }
-    catch (error)
-    {
-        console.log(error.response.status);
-        console.log(error.response.message);
-        throw new Error(error.message());
-
-    };
+    catch (error: AxiosError) {
+        console.log(error.response.data)
+        throw new Error(error.response.data);
+    }
 }
 
 
