@@ -10,15 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllBooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User/AllBooks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/AllUsers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Admin/AllUsers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/CreateWorker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Admin/CreateWorker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/MyBooksPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User/MyBooksPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/api/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Admin/AllUsers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Admin/AllUsers.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +99,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.Library: http.executor": "Run",
+    ".NET Launch Settings Profile.Library: http.executor": "Debug",
     ".NET Launch Settings Profile.Library: https.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -202,7 +197,7 @@
       <workItem from="1713593388226" duration="4987000" />
       <workItem from="1713599397407" duration="1953000" />
       <workItem from="1713601382480" duration="212000" />
-      <workItem from="1713601601442" duration="15567000" />
+      <workItem from="1713601601442" duration="19113000" />
     </task>
     <servers />
   </component>
@@ -222,6 +217,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Library/Controllers/AdminController.cs</url>
+          <line>76</line>
+          <properties documentPath="$PROJECT_DIR$/Library/Controllers/AdminController.cs" initialLine="76" containingFunctionPresentation="Method 'EditUser'">
+            <startOffsets>
+              <option value="2324" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2571" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

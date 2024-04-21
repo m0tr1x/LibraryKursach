@@ -54,7 +54,7 @@ export const getMyBooks = async () => {
         return responce.data;
 
     } catch (error) {
-        throw new Error(error.response.data.message())
+        throw new Error(error.response.data)
     }
 };
 
@@ -106,13 +106,13 @@ export const getAllUsers = async () => {
         return responce.data;
 
     } catch (error: AxiosError) {
-        throw new Error(error.response.data.message())
+        throw new Error(error.response.data)
     }
 }
 
-export const changeUserData = async (userId:number, email: string, name:string, role:Role) => {
+export const changeUserData = async (userId:number, email: string, name:string, role:number) => {
     try {
-        const response = await axios.put(`http://localhost:5169/api/Admin/edit-user/userId=${userId}`, {email,name,role}, {
+        const response = await axios.put(`http://localhost:5169/api/Admin/edit-user/userId=${userId}&&name=${name}&&email=${email}&&role=${role}`, {userId,email,name,role}, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
@@ -120,7 +120,7 @@ export const changeUserData = async (userId:number, email: string, name:string, 
         });
         return response.data;
     } catch (error: AxiosError) {
-        throw new Error(error.response.data.message());
+        throw new Error(error.response.data);
     }
 };
 
@@ -152,7 +152,7 @@ export const getRental= async () =>{
     }
     catch (error: AxiosError)
     {
-        throw new Error(error.response.data.message())
+        throw new Error(error.response.data)
     }
 };
 
@@ -170,7 +170,7 @@ export const giveBook = async(bookId: number, userId: number) =>
     }
     catch (error: AxiosError)
     {
-        throw new Error(error.response.data.message())
+        throw new Error(error.response.data)
     }
 };
 

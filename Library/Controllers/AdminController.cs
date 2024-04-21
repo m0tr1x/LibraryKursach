@@ -70,21 +70,21 @@ public class AdminController : ControllerBase
     }
     
 
-    [HttpPut("edit-user/userId={userI}&&email={email}&&name={name}&&role={role}")]
+    [HttpPut("edit-user/userId={userId}&&name={name}&&email={email}&&role={role}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> EditUser(int userId, string email, string name, Role role)
     {
-        Console.WriteLine($"{userId} {email} {name} {role}");
-        var success = await _userService.UpdateUser(userId, email, name, role);
-        if (success)
+        try
         {
-            return Ok("Пользователь успешно отредактирован.");
+            await _userService.UpdateUser(userId, email, name, role);
+            return Ok("Данные пользователя успешно обновлены");
         }
-        else
+        catch (Exception e)
         {
-            return BadRequest("Ошибка при редактировании пользователя.");
-
+            return BadRequest(e.Message);
         }
+   
+        
     }
 
 }

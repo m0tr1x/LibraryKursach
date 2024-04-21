@@ -17,9 +17,11 @@ export function WorkerOrdersPage() {
     const handleGiveBook = async (bookId: number, userId: number) => {
         try {
             const response = await giveBook(bookId, userId);
+            console.log(response)
             setShowSuccessMessage(true);
-            setSuccessMessage(response.data);
+            setSuccessMessage(response);
             loadOrders();
+            setShowSuccessMessage(false);
         } catch (error) {
             console.error('Ошибка при выдаче книги:', error.message);
             // Обработка ошибки при выдаче книги
@@ -93,7 +95,6 @@ export function WorkerOrdersPage() {
                         </Col>
                     ))}
                 </Row>
-                {showSuccessMessage && <Message message={successMessage} />}
             </div>
         </>
     )

@@ -116,21 +116,15 @@ public class UserService
     {
         // Получаем пользователя из базы данных по его идентификатору
         var existingUser = await _context.Users.FindAsync(userId);
+        if((await _context.Users.AnyAsync(u => u.Email == email) && existingUser.Id != userId)) throw new Exception("Пользователь с таким email уже существует");
     
         // Проверяем, существует ли пользователь с указанным идентификатором
-        if (existingUser == null)
-        {
-            return false; // Если пользователь не найден, возвращаем false
-        }
+        if (existingUser == null) throw new Exception("Пользователь не найден");
     
         // Обновляем данные пользователя на основе предоставленного объекта user
         existingUser.Name = name;
         existingUser.Email = email;
         existingUser.UserRole = role;
-         
-
-
-
         // Сохраняем обновленного пользователя в базе данных
         _context.Users.Update(existingUser);
         await _context.SaveChangesAsync();

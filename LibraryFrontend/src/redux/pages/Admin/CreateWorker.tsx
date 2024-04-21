@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import {useState} from "react";
 import {Message} from "../PopUpMessageSuccess.tsx";
 import {register} from "../../../api/api.tsx";
+import Card from "react-bootstrap/Card";
 
 export function CreateWorkerPage()
 {
@@ -25,27 +26,29 @@ export function CreateWorkerPage()
 
     return(
     <>
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Имя</Form.Label>
-                <Form.Control type="text" placeholder="Введите имя" value={name} onChange={(e) => setName(e.target.value)} />
-            </Form.Group>
+        <Card border={"light"} style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', width:'auto'}}>
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label>Имя</Form.Label>
+                    <Form.Control type="text" placeholder="Введите имя" value={name} onChange={(e) => setName(e.target.value)} />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Электронная почта</Form.Label>
-                <Form.Control type="email" placeholder="Введите электронную почту" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Электронная почта</Form.Label>
+                    <Form.Control type="email" placeholder="Введите электронную почту" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Пароль</Form.Label>
-                <Form.Control type="password" placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Пароль</Form.Label>
+                    <Form.Control type="password" placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </Form.Group>
 
-            <Button variant="primary" type="button" onClick={handleRegister}>
-                Зарегистрироваться
-            </Button>
-            {showSuccessMessage && <Message message={successMessage} />}
-        </Form>
+                <Button variant="primary" type="button" onClick={handleRegister}>
+                    Создать работника
+                </Button>
+                {showSuccessMessage && <Message message={successMessage} />}
+            </Form>
+        </Card>
     </>
     )
 }
