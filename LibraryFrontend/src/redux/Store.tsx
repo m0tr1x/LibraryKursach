@@ -1,9 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './reducers/userReducer'; // Подставьте свой путь до файла с редуктором
+
+import {configureStore} from "@reduxjs/toolkit";
+import {bookReducer} from "./Hooks/userhooks.tsx";
+
+
 
 const store = configureStore({
     reducer: {
-        //user: userReducer // user - это ключ, по которому будет доступен этот редуктор в глобальном состоянии
+        books: bookReducer,
     }
 });
 
