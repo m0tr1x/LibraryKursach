@@ -7,16 +7,17 @@ import Card from "react-bootstrap/Card";
 import { IBook } from "../../Interfaces/IBook.tsx";
 import { jwtDecode } from "jwt-decode";
 import {fetchBooks, purchaseBookAction} from "../../Hooks/Actions.tsx";
+import {useNavigate} from "react-router-dom";
 
 export function AllBooksPage() {
     const [filteredBooks, setFilteredBooks] = useState<IBook[]>([]);
-
     const availableBooks = useSelector((state: any) => state.books);
     const dispatch = useDispatch();
     const [searchVal, setSearchVal] = useState("");
     const token: string = localStorage.getItem('token');
     const decodedToken = jwtDecode(token);
     const id = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/id'];
+    const navigate = useNavigate();
 
     const applyFilter = (booksToFilter: IBook[]) => {
         if (searchVal.trim() === '') {
@@ -31,7 +32,7 @@ export function AllBooksPage() {
 
     const handlePurchaseBook = async (bookId: number, userId: number) => {
         try {
-            dispatch(purchaseBookAction({ bookId: bookId, userId: userId }));
+            await dispatch(purchaseBookAction({ bookId: bookId, userId: userId }));
             loadAvailableBooks();
         } catch (error) {
             console.error('Ошибка при взятии книги:', error);
@@ -40,20 +41,22 @@ export function AllBooksPage() {
 
     const loadAvailableBooks = async () => {
         try {
-            dispatch(fetchBooks());
-            const books = await getAvailableBooks();
-            applyFilter(books);
+            const books = await dispatch(fetchBooks());
+            applyFilter(books.payload);
         } catch (error) {
             console.error('Ошибка при загрузке доступных книг:', error.message);
         }
     };
 
     useEffect(() => {
+        if (localStorage.getItem('token') == null) {
+            navigate("/")
+        }
         loadAvailableBooks();
     }, []);
 
     const handleFilterClick = () => {
-        applyFilter(availableBooks);
+        applyFilter(availableBooks.availableBooks);
     };
 
     return (

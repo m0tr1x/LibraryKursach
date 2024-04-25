@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Button, Modal, Form, Table,Alert} from "react-bootstrap";
 import {addAuthor, addBook, addGenre, getAvailableBooks, editBook, deleteBook} from "../../../api/api.tsx";
 import {IBook} from "../../Interfaces/IBook.tsx";
+import {useNavigate} from "react-router-dom";
 
 export function WorkerEditPage() {
     const [showEditModal, setShowEditModal] = useState(false);
@@ -22,6 +23,7 @@ export function WorkerEditPage() {
     const [availableBooks, setAvailableBooks] = useState<IBook[]>([]);
     const [searchVal, setSearchVal] = useState("");
     const [filteredBooks, setFilterdBooks] = useState<IBook[]>([]);
+    const navigate = useNavigate();
 
 
     const applyFilter = (booksToFilter: IBook[]) => {
@@ -84,6 +86,7 @@ export function WorkerEditPage() {
             // Обновление данных после удаления книги
             loadAvailableBooks();
         } catch (error) {
+            setShowErrorMessage(true);
             setErrorMessage(error.response); // Предполагается, что сообщение об ошибке приходит с сервера
             console.error("Ошибка при удалении книги:", error);
         }
@@ -98,6 +101,7 @@ export function WorkerEditPage() {
 
         } catch (error) {
             console.log(error);
+            setShowErrorMessage(true);
             setErrorMessage(error.message); // Предполагается, что сообщение об ошибке приходит с сервера
             console.error("Ошибка при добавлении книги:", error.message);
             // Добавьте здесь логику для обработки ошибки при добавлении книги
@@ -111,6 +115,7 @@ export function WorkerEditPage() {
             handleCloseAddAuthorModal();
         } catch (error) {
             console.log(error);
+            setShowErrorMessage(true);
             setErrorMessage(error.message); // Предполагается, что сообщение об ошибке приходит с сервера
             console.error("Ошибка при добавлении автора:", error);
         }
@@ -124,6 +129,7 @@ export function WorkerEditPage() {
             handleCloseAddGenreModal();
         } catch (error) {
             console.log(error);
+            setShowErrorMessage(true);
             setErrorMessage(error.message); // Предполагается, что сообщение об ошибке приходит с сервера
             console.error("Ошибка при добавлении жанра:", error);
         }
@@ -141,19 +147,35 @@ export function WorkerEditPage() {
         }
     };
     useEffect(() => {
+        if (localStorage.getItem('token') == null) {
+            navigate("/")
+        }
         loadAvailableBooks();
     }, []);
 
-    const handleCloseAddBookModal = () => setShowAddBookModal(false);
+    const handleCloseAddBookModal = () => {
+        setShowAddBookModal(false);
+        setShowErrorMessage(false);
+    }
     const handleShowAddBookModal = () => setShowAddBookModal(true);
 
-    const handleCloseAddAuthorModal = () => setShowAddAuthorModal(false);
+    const handleCloseAddAuthorModal = () =>
+    {
+        setShowAddAuthorModal(false)
+        setShowErrorMessage(false);
+    };
     const handleShowAddAuthorModal = () => setShowAddAuthorModal(true);
 
-    const handleCloseAddGenreModal = () => setShowAddGenreModal(false);
+    const handleCloseAddGenreModal = () => {
+        setShowAddGenreModal(false);
+        setShowErrorMessage(false);
+    }
     const handleShowAddGenreModal = () => setShowAddGenreModal(true);
 
-    const handleCloseEditModal = () => setShowEditModal(false);
+    const handleCloseEditModal = () => {
+        setShowEditModal(false);
+        setShowErrorMessage(false);
+    }
 
 
     return (
@@ -207,10 +229,10 @@ export function WorkerEditPage() {
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleCloseAddBookModal}>Закрыть</Button>
                         <Button variant="primary" onClick={handleAddBook}>Добавить</Button>
+                        <div style={{width: 'auto', margin: 'auto'}}>
+                            {showErrorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+                        </div>
                     </Modal.Footer>
-                <div style={{width:'auto', margin:'auto'}}>
-                    {showErrorMessage && <Alert  variant="danger" >{errorMessage}</Alert>}
-                </div>
                 </Modal>
 
 
@@ -231,10 +253,10 @@ export function WorkerEditPage() {
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleCloseAddAuthorModal}>Закрыть</Button>
                         <Button variant="primary" onClick={handleAddAuthor}>Добавить</Button>
+                        <div style={{width: 'auto', margin: 'auto'}}>
+                            {showErrorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+                        </div>
                     </Modal.Footer>
-                    <div style={{width: 'auto', margin: 'auto'}}>
-                        {showErrorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-                    </div>
                 </Modal>
 
                 {/* Модальное окно для добавления жанра */}
@@ -254,10 +276,10 @@ export function WorkerEditPage() {
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleCloseAddGenreModal}>Закрыть</Button>
                         <Button variant="primary" onClick={handleAddGenre}>Добавить</Button>
+                        <div style={{width: 'auto', margin: 'auto'}}>
+                            {showErrorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+                        </div>
                     </Modal.Footer>
-                    <div style={{width: 'auto', margin: 'auto'}}>
-                        {showErrorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-                    </div>
                 </Modal>
             </div>
             <div style={{marginTop: "20px"}}>

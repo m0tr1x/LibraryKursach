@@ -1,9 +1,10 @@
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Message} from "../PopUpMessageSuccess.tsx";
 import {register} from "../../../api/api.tsx";
 import Card from "react-bootstrap/Card";
+import {useNavigate} from "react-router-dom";
 
 export function CreateWorkerPage()
 {
@@ -12,6 +13,7 @@ export function CreateWorkerPage()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = async () => {
         try {
@@ -23,6 +25,12 @@ export function CreateWorkerPage()
             // Обработка ошибки регистрации
         }
     };
+
+    useEffect(() => {
+        if (localStorage.getItem('token') == null) {
+            navigate("/")
+        }
+    }, []);
 
     return(
     <>

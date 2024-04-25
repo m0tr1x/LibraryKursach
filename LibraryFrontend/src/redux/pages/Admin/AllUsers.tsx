@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {IUser} from "../../Interfaces/IUser.tsx";
 import {Role} from "../../Interfaces/Role.tsx";
 import {IBook} from "../../Interfaces/IBook.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 export function AllUsersPage() {
@@ -17,6 +18,7 @@ export function AllUsersPage() {
     const [editRole, setEditRole] = useState("");
     const [filteredUsers, setFilteredUsers] = useState<IUser[]>([]);
     const [searchVal, setSearchVal] = useState("");
+    const navigate = useNavigate();
 
 
     const applyFilter = (usersToFilter: IUser[]) => {
@@ -92,6 +94,9 @@ export function AllUsersPage() {
 
 
     useEffect(() => {
+        if (localStorage.getItem('token') == null) {
+            navigate("/")
+        }
         loadAllUsers();
     }, []);
 

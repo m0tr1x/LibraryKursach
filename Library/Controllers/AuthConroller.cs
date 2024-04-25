@@ -43,7 +43,7 @@ public class AuthConroller : ControllerBase
             issuer: AuthOptions.ISSUER,
             audience: AuthOptions.AUDIENCE,
             claims: claims,
-            expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(3)), // Задаем время действия
+            expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(15)), // Задаем время действия
             signingCredentials: new SigningCredentials(AuthOptions.GetSymSecurityKey(), SecurityAlgorithms.HmacSha256));
         ;
         return Ok(new JwtSecurityTokenHandler().WriteToken(jwt)); //Если с пользователем все ок вернули ему токен

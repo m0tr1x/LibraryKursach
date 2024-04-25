@@ -10,12 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="af2c850e-eab5-40b1-b2ed-88eb5366b0a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/Hooks/userhooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/Hooks/userhooks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/Store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/Store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Controllers/AuthConroller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/Hooks/Actions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/Hooks/Actions.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User/AllBooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/User/AllBooks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryFrontend/src/redux/pages/Worker/WorkerEdit.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +203,10 @@
       <workItem from="1713786511823" duration="367000" />
       <workItem from="1713814037612" duration="88000" />
       <workItem from="1713863087688" duration="989000" />
-      <workItem from="1713871935718" duration="1436000" />
+      <workItem from="1713871935718" duration="1981000" />
+      <workItem from="1713876590706" duration="159000" />
+      <workItem from="1713952477781" duration="28000" />
+      <workItem from="1714037711257" duration="1516000" />
     </task>
     <servers />
   </component>

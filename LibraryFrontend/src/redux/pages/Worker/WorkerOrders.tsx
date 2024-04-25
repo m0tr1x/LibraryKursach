@@ -4,6 +4,7 @@ import { Button, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Message } from "../PopUpMessageSuccess.tsx";
 import { IOrder } from "../../Interfaces/IOrder.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -13,6 +14,7 @@ export function WorkerOrdersPage() {
     const [orders, setOrders] = useState<IOrder[]>([]);
     const [searchVal, setSearchVal] = useState("");
     const [filteredOrders, setFilteredOrders] = useState<IOrder[]>([]);
+    const navigate = useNavigate();
 
     const handleGiveBook = async (bookId: number, userId: number) => {
         try {
@@ -40,7 +42,9 @@ export function WorkerOrdersPage() {
     };
 
     useEffect(() => {
-        // Загрузка всех заказов при загрузке страницы
+        if (localStorage.getItem('token') == null) {
+            navigate("/")
+        }
         loadOrders();
     }, []);
 

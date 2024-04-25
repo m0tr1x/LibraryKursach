@@ -4,7 +4,7 @@ import {getAvailableBooks, purchaseBook} from "../../api/api.tsx";
 
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
     const response = await getAvailableBooks();
-    return response.data; // Предположим, что API возвращает объект с данными книг
+    return response; // Предположим, что API возвращает объект с данными книг
 });
 
 export const purchaseBookAction = createAsyncThunk(

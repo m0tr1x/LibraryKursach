@@ -4,9 +4,11 @@ import {useEffect, useState} from "react";
 import {IBook} from "../../Interfaces/IBook.tsx";
 import {Button} from 'react-bootstrap';
 import {getMyBooks, returnBook} from "../../../api/api.tsx";
+import {useNavigate} from "react-router-dom";
 
 export function MyBooksPage() {
     const [myBooks, setMyBooks] = useState<IBook[]>([]);
+    const navigate = useNavigate();
 
 
     const handleReturnBook = async (bookId: number) => {
@@ -31,6 +33,9 @@ export function MyBooksPage() {
 
     useEffect(() => {
         // Загрузка доступных книг при монтировании компонента
+        if (localStorage.getItem('token') == null) {
+            navigate("/")
+        }
         loadMyBooksBooks();
     }, []);
 
