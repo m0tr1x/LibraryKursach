@@ -53,6 +53,7 @@ public class Program
         builder.Services.AddScoped<BookService>();
         builder.Services.AddScoped<WorkerService>();
         builder.Services.AddScoped<RentalOperationService>();
+        builder.Services.AddApplicationInsightsTelemetry();
         
         builder.Services.AddDbContext<AppDbContext>();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
